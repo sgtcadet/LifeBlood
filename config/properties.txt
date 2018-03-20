@@ -1,0 +1,1 @@
+IHospitalService = services.HospitalSvcJDBCImpl
