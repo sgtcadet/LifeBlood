@@ -8,22 +8,37 @@ package domain;
 //import java.util.Date;
 
 import java.sql.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 
 /**
  *
  * @author howar
  */
-//@Entity
-//@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class Person {
-    
+    @Id
+    @Column (name ="trn")
     private String trn;
+    
+    @Column (name ="firstname")
     private String firstname;
+    
+    @Column (name = "lastname")
     private String lastname;
+    
+    @Column (name = "email")
     private String email;
+    
+    @Column (name = "gender")
     private String gender;
     //private Date dob;
+    //TODO Add Date , Number, and Address Annotation
     private Date dob;
     private String[] number;
     private String[] address;

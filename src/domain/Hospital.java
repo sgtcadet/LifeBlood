@@ -5,10 +5,17 @@
  */
 package domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author howar
  */
+@Entity
+@Table (name = "hospital")
 public class Hospital 
 {
     //Default constructor
@@ -22,10 +29,16 @@ public class Hospital
         this.phone = phone;
     }
     
-    
+    @Id
+    @Column (name = "idhospital")
     private String hostpitalId;
+    @Column (name = "name")
     private String name;
+    
+    //TODO ADD ANNOTATION FOR ADDRESS
     private String[] address;
+    
+    @Column (name = "phone")
     private String phone; //Hospital will have only one phone number
     
     

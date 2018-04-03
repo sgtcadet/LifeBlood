@@ -29,7 +29,7 @@ public class DonorSvcJDBCImpl extends ConnectionManager implements IDonorService
             
            
                 //Check if person donated already
-                String checkSql = "SELECT `person_trn` FROM `donor` WHERE `person_trn` = ? ";
+                String checkSql = "SELECT `trn` FROM `donor` WHERE `trn` = ? ";
                 
                 //prepaered statement
                 PreparedStatement checkPstmt = this.getConnection().prepareStatement(checkSql);
@@ -48,12 +48,12 @@ public class DonorSvcJDBCImpl extends ConnectionManager implements IDonorService
                     //NOTE - in the future a time constraint can be implemented
                 {
                 //THOUGHTS (2) could this pose a security threat
-                    String insertSQL = "INSERT INTO `donor` (`person_trn`,`blood_bank_idblood_bank`) VALUES (?,?);";
+                    String insertSQL = "INSERT INTO `blood_bank_has_donor` (`blood_bank_idblood_bank`,`donor_trn`) VALUES (?,?);";
 //                        + "INSERT INTO `blood_bank` (`idblood_bank`, `name`, `phone` ) VALUES(?,?,?);"
 //                        + "INSERT INTO `blood_bank_address` (`blood_bank_idblood_bank`,`street`, `address_line_1`, `address_line_2`) VALUES (?,?,?,?)";
                 
                     //TODO (2) review the relation with donor and person as it relates to data entry in the database
-                    // along with the abilitiy to donate one to many times
+                    // along with the abilitiy to donatINSERT INTO `blood_bank_has_donor` (`blood_bank_idblood_bank`,`donor_trn`) VALUES (?,?);e one to many times
 
                     //prepared statement
                     PreparedStatement pstmtInsert = this.getConnection().prepareStatement(insertSQL);
@@ -68,10 +68,10 @@ public class DonorSvcJDBCImpl extends ConnectionManager implements IDonorService
                 }
                 else
                 { //else if user hasnt already donated, add their personal data to the person table and allow them to donate
-                    String newPersonSQL = "INSERT INTO `person` (`trn`,`firstname`,`lastname`,`email`,`gender`,`dob`) VALUES (?,?,?,?,?,?);"
-                            + "INSERT INTO `person_address` (`person_trn`,`street`, `address_line_1`, `address_line_2`) VALUES (?,?,?,?);"
-                            + "INSERT INTO `person_phone` (`person_trn`,`phone_number_1`,`phone_number_2`) VALUES (?,?,?);"
-                            + "INSERT INTO `donor` (`person_trn`,`blood_bank_idblood_bank`) VALUES (?,?);";
+                    String newPersonSQL = "INSERT INTO `donor` (`trn`,`firstname`,`lastname`,`email`,`gender`,`dob`,`blood_type`) VALUES (?,?,?,?,?,?,?);"
+                            + "INSERT INTO `address` (`trn`,`street`, `address_line_1`, `address_line_2`) VALUES (?,?,?,?);"
+                            + "INSERT INTO `phone` (`trn`,`phone_number_1`,`phone_number_2`) VALUES (?,?,?);"
+                            + "INSERT INTO `blood_bank_has_donor` (`blood_bank_idblood_bank`,`donor_trn`) VALUES (?,?);";
                     
                     //prepared statement
                     PreparedStatement pstmtNewInsert = this.getConnection().prepareStatement(newPersonSQL);
@@ -83,25 +83,29 @@ public class DonorSvcJDBCImpl extends ConnectionManager implements IDonorService
                     pstmtNewInsert.setString(4, donor.getEmail());
                     pstmtNewInsert.setString(5, donor.getGender());
                     pstmtNewInsert.setDate(6, (Date) donor.getDob());
+                    pstmtNewInsert.setString(7, donor.getBloodType());
                     
                     
-                    pstmtNewInsert.setString(7, donor.getTrn());
-                    //address
+                    //address INSERT PARAMS
+                    pstmtNewInsert.setString(8, donor.getTrn());
+                    
                     String [] address = donor.getAddress();
-                    pstmtNewInsert.setString(8, address[0]);   //street
-                    pstmtNewInsert.setString(9, address[1]);   //address line 1
-                    pstmtNewInsert.setString(10, address[2]);   //address line 2
+                    pstmtNewInsert.setString(9, address[0]);   //street
+                    pstmtNewInsert.setString(10, address[1]);   //address line 1
+                    pstmtNewInsert.setString(11, address[2]);   //address line 2
                     
-                    pstmtNewInsert.setString(11, donor.getTrn());
-                    //phone
+                    //phone INSERT PARAMS
+                    pstmtNewInsert.setString(12, donor.getTrn());
+                    
                     String [] phone = donor.getNumber();
-                    pstmtNewInsert.setString(12, phone[0]);   //phone 1
-                    pstmtNewInsert.setString(13, phone[1]);   //phone 2
+                    pstmtNewInsert.setString(13, phone[0]);   //phone 1
+                    pstmtNewInsert.setString(14, phone[1]);   //phone 2
                    
                     
-                    //donor
-                    pstmtNewInsert.setString(14, donor.getTrn());
+                    //Blodd bank donor
                     pstmtNewInsert.setString(15, bloodBank.getId());
+                    pstmtNewInsert.setString(16, donor.getTrn());
+                    
                     
                     pstmtNewInsert.executeUpdate();
                     
@@ -122,10 +126,10 @@ public class DonorSvcJDBCImpl extends ConnectionManager implements IDonorService
             //Connecting to database
             this.connectToDatabase();
             
-            String checkSQL     = "SELECT `person_trn` FROM `donor` WHERE `person_trn` = ? ;";
-            String updateSQL    = "UPDATE `person` SET `firstname` = ?,`lastname` = ? ,`email` = ?,`gender` = ?,`dob` =? WHERE `trn` = ?;"
-                    + "UPDATE `person_address` SET `street` = ? , `address_line_1` = ?, `address_line_2`= ? WHERE `person_trn` = ?;"
-                    + "UPDATE `person_phone` SET  `phone_number_1` = ?,`phone_number_2` = ? WHERE `person_trn` = ?;";
+            String checkSQL     = "SELECT `trn` FROM `donor` WHERE `trn` = ? ;";
+            String updateSQL    = "UPDATE `donor` SET `firstname` = ?,`lastname` = ? ,`email` = ?,`gender` = ?,`dob` =? WHERE `trn` = ?;"
+                    + "UPDATE `address` SET `street` = ? , `address_line_1` = ?, `address_line_2`= ? WHERE `trn` = ?;"
+                    + "UPDATE `phone` SET  `phone_number_1` = ?,`phone_number_2` = ? WHERE `trn` = ?;";
                                 
             
             //preparing statement
@@ -237,7 +241,7 @@ public class DonorSvcJDBCImpl extends ConnectionManager implements IDonorService
             this.connectToDatabase();
             
             //SQL query
-            String checkSQL = "SELECT `person_trn` from `donor` WHERE `person_trn`= ?";
+            String checkSQL = "SELECT `trn` from `donor` WHERE `trn`= ?";
             
             //prepared statement
             PreparedStatement pstmt = this.getConnection().prepareStatement(checkSQL);
@@ -256,7 +260,10 @@ public class DonorSvcJDBCImpl extends ConnectionManager implements IDonorService
             }
             else
             { //Delete 
-                String deleteQuery = "DELETE  FROM `donor` WHERE `person_trn` = ? ;";
+                String deleteQuery = "DELETE FROM `blood_bank_has_donor` WHERE `donor_trn` = ?;"
+                        + "DELETE FROM `address` WHERE `trn` = ?;"
+                        + "DELETE FROM `phone` WHERE `trn`= ?;"
+                        + "DELETE  FROM `donor` WHERE `trn` = ? ;";
                                     
                 
                 //prepared statment
@@ -264,6 +271,9 @@ public class DonorSvcJDBCImpl extends ConnectionManager implements IDonorService
                 
                 //setting preparedStatement params
                 delPstmt.setString(1,donor.getTrn());
+                delPstmt.setString(2,donor.getTrn());
+                delPstmt.setString(3,donor.getTrn());
+                delPstmt.setString(4,donor.getTrn());
                 
                 
                 //executing statement
@@ -272,7 +282,7 @@ public class DonorSvcJDBCImpl extends ConnectionManager implements IDonorService
                 System.out.println(donor.getFirstname()+ " Donation(s) deleted!!");
             }
             
-        }catch(SQLException ex){System.out.println("Error: " + ex.toString() + ", could not Donation!");}finally{close();}
+        }catch(SQLException ex){System.out.println("Error: " + ex.toString() + ", could not delete Donation!");}finally{close();}
     }
     
 }

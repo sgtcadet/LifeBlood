@@ -5,6 +5,7 @@
  */
 package services;
 
+import domain.BloodBank;
 import domain.Receptionist;
 import java.sql.SQLException;
 import java.util.List;
@@ -17,7 +18,7 @@ public interface IReceptionistService extends IService
 {
     public final String NAME = "IReceptionistService";
     
-    public void addReceptionist(Receptionist receptionist) throws SQLException;
+    public void addReceptionist(Receptionist receptionist, BloodBank bloodBank) throws SQLException;
     
     public void updateReceptionist(Receptionist receptionist) throws SQLException;
     

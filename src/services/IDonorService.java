@@ -18,12 +18,12 @@ public interface IDonorService extends IService
 {
     public final String NAME = "IDonorService";
     
-    public void addDonor(Donor donor, BloodBank bloodBank) throws SQLException;
+    public void addDonor(Donor donor, BloodBank bloodBank) throws Exception;
     
-    public void updateDonor(Donor donor) throws SQLException;
+    public void updateDonor(Donor donor) throws Exception;
     
-    public List<Donor> getAllDonor() throws SQLException;
+    public List<Donor> getAllDonor() throws Exception;
     
-    public void deleteDonor(Donor donor) throws SQLException;
+    public void deleteDonor(Donor donor) throws Exception;
     
 }

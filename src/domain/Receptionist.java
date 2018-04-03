@@ -6,14 +6,20 @@
 package domain;
 
 import java.sql.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  *
  * @author howar
  */
+@Entity
+@Table (name="receptionist")
 public class Receptionist extends Person{
-    
+    @Column (name="blood_bank_idblood_bank")
     private String receptionistId;
+    //THOUGHTS this is a foreign key form the blood bank table | may need to be modified
     //default constructor
     public Receptionist(){super();}
     

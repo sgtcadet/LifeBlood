@@ -6,6 +6,7 @@
 package services;
 
 import domain.BloodBank;
+import domain.BloodBankAddress;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -20,9 +21,11 @@ public interface IBloodBankService extends IService
     
     public void addBloodBank(BloodBank bloodBank) throws SQLException;
     
+    public void addBloodBank(BloodBankAddress bloodBank) throws SQLException;
+    
     public void upDateBloodBank(BloodBank bloodBank) throws SQLException;
     
     public List<BloodBank> getAllBloodBank() throws SQLException;
     
-    public void deleteHospital(BloodBank bloodBank) throws SQLException;
+    public void deleteBloodBank(BloodBank bloodBank) throws SQLException;
 }

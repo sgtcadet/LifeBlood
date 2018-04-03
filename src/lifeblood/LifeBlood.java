@@ -5,15 +5,20 @@
  */
 package lifeblood;
 
+import domain.Address;
 import domain.BloodBank;
+import domain.BloodBankAddress;
 import domain.Donor;
 import domain.Hospital;
+import domain.Receptionist;
 import java.sql.Date;
 import java.sql.SQLException;
 //import java.util.Date;
 import services.HospitalSvcJDBCImpl;
 import services.BloodBankSvcJDBCImpl;
 import services.DonorSvcJDBCImpl;
+import services.Hibernate.BloodBankSvcHibernateImpl;
+import services.ReceptionistSvcJDBCImpl;
 
 /**
  *
@@ -29,25 +34,59 @@ public class LifeBlood {
     public static void main(String[] args) {
         
         
-        /*HOSPITAL*/
-        String[] address = new String[3];
-        address[0] = "Roadside District";
-        address[1] = "Islington P,O";
-        address[2] = "St.Mary";
-        Hospital h = new Hospital("SM01","St. Mary Hospital",address,"994-8579");
-        HospitalSvcJDBCImpl hImp = new HospitalSvcJDBCImpl();
+        /*
+        *HOSPITAL
+        */
+//        String[] address = new String[3];
+//        address[0] = "Roadside District";
+//        address[1] = "Islington P,O";
+//        address[2] = "St.Mary";
+//        Hospital h = new Hospital("SM01","St. Mary Hospital",address,"994-8579");
+//        HospitalSvcJDBCImpl hImp = new HospitalSvcJDBCImpl();
         
-        //Blood bank
-        String[] bAddress = {"86 Wickham Ave", "Kingston 5", "St. Andrew"};
-        BloodBank bBank = new BloodBank("KN03","Newell Jr",bAddress,"998-7845");
-        BloodBankSvcJDBCImpl b = new BloodBankSvcJDBCImpl();
+        /*
+        *BLOOD BANK
+        */
+        //String[] bAddress = {"7 Spanish Town Road", "Kingston 2", "St. Andrew"};
+        BloodBank bBank = new BloodBank(); //new BloodBank("KPH2","Kingston Public",bAddress,"998-7845");
+        BloodBankAddress bAddress = new BloodBankAddress();
+        
+        bBank.setId("KPH2");
+        bBank.setName("Kingston Public");
+        bBank.setNumber("998-7845");
+        //bAddress.setId(bBank.getId());
+        bAddress.setBloodBank(bBank);
+//        bAddress.getBloodBank().setId("KPH2");
+//        bAddress.getBloodBank().setName("Kingston Public");
+//        bAddress.getBloodBank().setNumber("998-7845");
+        //bAddress.setId("KPH2");
+        bAddress.setStreet("7 Spanish Town Road");
+        bAddress.setAddressLine1("Kingston 2");
+        bAddress.setAddressLine2("St. Andrew");
+        
+        
+       
+        //BloodBankSvcJDBCImpl b = new BloodBankSvcJDBCImpl();
+        BloodBankSvcHibernateImpl b = new BloodBankSvcHibernateImpl();
          
-        //Donor
-        String[] phone = {"123-232-2312", "876-582-6714"}; 
-        //TODO fix Date output format
-        Date date = new Date(95,12,03);
-        Donor d = new Donor("123-234-232","Lucien", "Grant","Lucien@email.com", "Male", date, phone, address);
-        DonorSvcJDBCImpl dr = new DonorSvcJDBCImpl();
+        /*
+        *DONOR
+        */
+//        String[] phone = {"876-459-0414", "876-582-6714"}; 
+//        //TODO fix Date output format
+//        Date date = new Date(95,12,03);
+//        Donor d = new Donor("123-234-232","Howard", "Grant","Lucien@email.com", "Male", date, phone, address, "A Pos");
+//        DonorSvcJDBCImpl dr = new DonorSvcJDBCImpl();
+        
+        /*
+        *RECEPTIONSIT
+        */
+//        String[] rAddress = {"Naqti", "Kingston 5", "Naboo"};
+//        String[] rphone = {"475-879-7845", "147-689-123"}; 
+//        //TODO fix Date output format
+//        Date rdate = new Date(96,12,03);
+//        Receptionist r = new Receptionist("123-234-232","Darth", "Mall","dstar@email.com", "Male", rdate, rphone, rAddress, "O Pos");
+//        ReceptionistSvcJDBCImpl rnist = new ReceptionistSvcJDBCImpl();
         try{
             
             /*HOSPITAL TEST*/
@@ -59,6 +98,7 @@ public class LifeBlood {
             
             /*BlOOD BANK TEST*/
                 //b.addBloodBank(bBank);
+                b.addBloodBank(bAddress);
                 //b.upDateBloodBank(bBank);
                 //b.getAllBloodBank();
                 //b.deleteHospital(bBank);
@@ -67,8 +107,14 @@ public class LifeBlood {
             //dr.addDonor(d, bBank);
             //dr.updateDonor(d);
             //dr.getAllDonor();
-            dr.deleteDonor(d);
-        }catch(SQLException ex){ System.out.println("Error adding hospital: " + ex.toString() + "...");}
+            //dr.deleteDonor(d);
+            
+            /*RECEPTIONIST*/
+            //rnist.addReceptionist(r, bBank);
+            //rnist.updateReceptionist(r);
+            //rnist.listAllReceptionist();
+            //rnist.deleteReceptionist(r);
+        }catch(SQLException ex){ System.out.println("Error (PRESENTATION): " + ex.toString() + "...");}
 
 
 

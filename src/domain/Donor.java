@@ -8,33 +8,38 @@ package domain;
 //import java.util.Date;
 
 import java.sql.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 
 /**
  *
  * @author howar
  */
+@Entity
+@Table (name = "donor")
 public class Donor extends Person
 {
+    @Column (name = "blood_type")
+    private String bloodType; 
     
-    private String donationId; //this is an auto Incremented column in the database
+    
     //default constructor
     public Donor(){ super();}
     
-    public Donor(String trn, String firstname, String lastname, String email, String gender, Date dob, String[] number, String[] address, String donationId)
+    public Donor(String trn, String firstname, String lastname, String email, String gender, Date dob, String[] number, String[] address, String bloodType)
     {
         super(trn,firstname,lastname,email,gender,dob,number,address);
-        setDonationId(donationId);
+        setBloodType(bloodType);
     }
     
-    public Donor(String trn, String firstname, String lastname, String email, String gender, Date dob, String[] number, String[] address)
-    {
-        super(trn,firstname,lastname,email,gender,dob,number,address);
-        //setDonationId(donationId);
-    }
+//    public Donor(String trn, String firstname, String lastname, String email, String gender, Date dob, String[] number, String[] address)
+//    {
+//        super(trn,firstname,lastname,email,gender,dob,number,address);
+//        
+//    }
     
-    public void setDonationId(String donationId){this.donationId = donationId;}
-    //TODO Remove this method
-    //public String getDonationId(){return donationId;}
-    
+    public void setBloodType(String bloodType){this.bloodType = bloodType;}
+    public String getBloodType(){return bloodType;}
 }

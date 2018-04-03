@@ -5,7 +5,9 @@
  */
 package services;
 
+import domain.Address;
 import domain.BloodBank;
+import domain.BloodBankAddress;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -64,11 +66,12 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
                 
                 pstmtInsert.setString(4, bloodBank.getId());
                 // ARRAY ADDRESS
-                String[] address = bloodBank.getAddress();
-                
-                pstmtInsert.setString(5, address[0]);   //street
-                pstmtInsert.setString(6, address[1]);   //address line 1
-                pstmtInsert.setString(7, address[2]);   //address line 2
+                //String[] address = bloodBank.getAddress();
+                //Address address = bloodBank.getAddress();
+
+//                pstmtInsert.setString(5, address.getStreet());   //street
+//                pstmtInsert.setString(6, address.getAddressLine1());   //address line 1
+//                pstmtInsert.setString(7, address.getAddressLine2());   //address line 2
                 
                 //Execute the sql statement
                 pstmtInsert.executeUpdate();
@@ -99,7 +102,7 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
             PreparedStatement pstmt = this.getConnection().prepareStatement(checkSQL);
             
             //setting parms for check prepared statement
-            pstmt.setString(1, bloodBank.getId());
+//            pstmt.setString(1, bloodBank.getId());
             
             //result of query execution
             ResultSet rset = pstmt.executeQuery();
@@ -119,11 +122,15 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
                 updatePstmt.setString(2,bloodBank.getNumber());
                 updatePstmt.setString(3,bloodBank.getId()); //Hospital Address wont be able to change or should it?
                 
-                String[] address = bloodBank.getAddress();
+                //String[] address = bloodBank.getAddress();
+                //Address address = bloodBank.getAddress();
+//                updatePstmt.setString(4,address[0]); //Street
+//                updatePstmt.setString(5,address[1]); //address_line_1
+//                updatePstmt.setString(6,address[2]); //address_line_2
                 
-                updatePstmt.setString(4,address[0]); //Street
-                updatePstmt.setString(5,address[1]); //address_line_1
-                updatePstmt.setString(6,address[2]); //address_line_2
+//                updatePstmt.setString(5, address.getStreet());          //street
+//                updatePstmt.setString(6, address.getAddressLine1());    //address line 1
+//                updatePstmt.setString(7, address.getAddressLine2());    //address_line_2
                 
                 updatePstmt.setString(7,bloodBank.getId());
                 
@@ -163,7 +170,7 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
                     
                     bloodBank.getName();
                     bloodBank.getNumber();
-                    bloodBank.getAddress();
+                    //bloodBank.getAddress();
                     
                     displayList.add(bloodBank);
                 }
@@ -182,7 +189,7 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
     }
 
     @Override
-    public void deleteHospital(BloodBank bloodBank) throws SQLException {
+    public void deleteBloodBank(BloodBank bloodBank) throws SQLException {
         try
         {
             //connecting to Database
@@ -225,6 +232,11 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
             }
             
         }catch(SQLException ex){System.out.println("Error: " + ex.toString() + ", could not delete Blood Bank!");}finally{close();}
+    }
+
+    @Override
+    public void addBloodBank(BloodBankAddress bloodBank) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
