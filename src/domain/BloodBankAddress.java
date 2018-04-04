@@ -37,5 +37,11 @@ public class BloodBankAddress extends Address{
     @Column(name = "address_id")
     public String getAddressId(){return address_id;}
     public void setAddressId(String id){this.address_id = id;}
-       
+
+    @Override
+    public String toString() {
+        return super.toString() +" BloodBankAddress{" + "address_id=" + address_id + '}';
+    }
+    
+    
 }

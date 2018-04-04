@@ -13,6 +13,9 @@ import domain.Hospital;
 import domain.Receptionist;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 //import java.util.Date;
 import services.HospitalSvcJDBCImpl;
 import services.BloodBankSvcJDBCImpl;
@@ -33,7 +36,7 @@ public class LifeBlood {
     //TODO (MAIN) Check application database contraints
     public static void main(String[] args) {
         
-        
+        List<BloodBank> bBankList = new ArrayList();
         /*
         *HOSPITAL
         */
@@ -48,8 +51,8 @@ public class LifeBlood {
         *BLOOD BANK
         */
         //String[] bAddress = {"7 Spanish Town Road", "Kingston 2", "St. Andrew"};
-        BloodBankAddress bAddress = new BloodBankAddress("2","7 Spanish Town Road","Kingston 2", "St. Andrew");
-        BloodBank bBank = new BloodBank("KPH2","Kingston Public","998-7845",bAddress); //new BloodBank("KPH2","Kingston Public",bAddress,"998-7845");
+        BloodBankAddress bAddress = new BloodBankAddress("2","7 Spanish Town Rd","Kingston 2", "St. Andrew");
+        BloodBank bBank = new BloodBank("KPH2","Kingston Central","997-1478",bAddress); //new BloodBank("KPH2","Kingston Public",bAddress,"998-7845");
         
         
 //        bBank.setId("KPH2");
@@ -68,8 +71,8 @@ public class LifeBlood {
         
         
        
-        BloodBankSvcJDBCImpl b = new BloodBankSvcJDBCImpl();
-        //BloodBankSvcHibernateImpl b = new BloodBankSvcHibernateImpl();
+        //BloodBankSvcJDBCImpl b = new BloodBankSvcJDBCImpl();
+        BloodBankSvcHibernateImpl b = new BloodBankSvcHibernateImpl();
          
         /*
         *DONOR
@@ -98,12 +101,25 @@ public class LifeBlood {
                 //hImp.getAllHospital();
                 //hImp.deleteHospital(h);
             
-            /*BlOOD BANK TEST*/
-                b.addBloodBank(bBank);
+            /*BLOOD BANK TEST*/
+                //b.addBloodBank(bBank);
                 //b.addBloodBank(bAddress);
                 //b.upDateBloodBank(bBank);
-                //b.getAllBloodBank();
-                //b.deleteHospital(bBank);
+                  bBankList = b.getAllBloodBank();
+                  System.out.println("PRINTING: ");
+//                  for(BloodBank bank : bBankList)
+//                  {
+//                      bank.toString();
+//                      //System.out.println("Name: " + bank.getName() + "\nId: " + bank.getId());
+//                  }
+                Iterator<BloodBank> bBankIter = bBankList.iterator();
+        
+                while(bBankIter.hasNext())
+                { 
+                    System.out.println("Printing: " + bBankIter.next().toString());
+                    //System.out.println("Name: " + bBankIter.);
+                }
+                //b.deleteBloodBank(bBank);
                 
             /*DONOR*/
             //dr.addDonor(d, bBank);

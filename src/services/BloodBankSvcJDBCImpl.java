@@ -93,14 +93,15 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
             this.connectToDatabase();
             
             String checkSQL     = "SELECT `idblood_bank` FROM `blood_bank` WHERE `idblood_bank` = ? ;";
+//            String updateSQL    = "UPDATE `blood_bank` SET `name` = ?, `phone` = ? WHERE `idblood_bank` = ? ;"
+//                                + "UPDATE `blood_bank_address` SET `street` = ?, `address_line_1` = ?, `address_line_2` = ? WHERE `blood_bank_idblood_bank` = ?";
             String updateSQL    = "UPDATE `blood_bank` SET `name` = ?, `phone` = ? WHERE `idblood_bank` = ? ;"
-                                + "UPDATE `blood_bank_address` SET `street` = ?, `address_line_1` = ?, `address_line_2` = ? WHERE `blood_bank_idblood_bank` = ?";
-            
+                                + "UPDATE `blood_bank_address` SET `street` = ?, `address_line_1` = ?, `address_line_2` = ? WHERE `address_id` = ?";
             //preparing statement
             PreparedStatement pstmt = this.getConnection().prepareStatement(checkSQL);
             
             //setting parms for check prepared statement
-//            pstmt.setString(1, bloodBank.getId());
+            pstmt.setString(1, bloodBank.getId());
             
             //result of query execution
             ResultSet rset = pstmt.executeQuery();
@@ -118,19 +119,13 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
                 
                 updatePstmt.setString(1,bloodBank.getName());
                 updatePstmt.setString(2,bloodBank.getNumber());
-                updatePstmt.setString(3,bloodBank.getId()); //Hospital Address wont be able to change or should it?
+                updatePstmt.setString(3,bloodBank.getId()); 
                 
-                //String[] address = bloodBank.getAddress();
-                //Address address = bloodBank.getAddress();
-//                updatePstmt.setString(4,address[0]); //Street
-//                updatePstmt.setString(5,address[1]); //address_line_1
-//                updatePstmt.setString(6,address[2]); //address_line_2
-                
-//                updatePstmt.setString(5, address.getStreet());          //street
-//                updatePstmt.setString(6, address.getAddressLine1());    //address line 1
-//                updatePstmt.setString(7, address.getAddressLine2());    //address_line_2
-                
-                updatePstmt.setString(7,bloodBank.getId());
+                //address
+                updatePstmt.setString(4,bloodBank.getBloodBankAddress().getStreet());
+                updatePstmt.setString(5,bloodBank.getBloodBankAddress().getAddressLine1());
+                updatePstmt.setString(6,bloodBank.getBloodBankAddress().getAddressLine2());
+                updatePstmt.setString(7,bloodBank.getBloodBankAddress().getAddressId());
                 
                 updatePstmt.executeUpdate();
                 
@@ -139,7 +134,7 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
             
         }catch(SQLException ex){System.out.println("Error: " + bloodBank.getName() + " update error!!\n log: " + ex.toString());}finally{close();}
     }
-
+    //TODO : display list
     @Override
     public List<BloodBank> getAllBloodBank() throws SQLException {
         List<BloodBank> displayList = new ArrayList();
@@ -151,7 +146,7 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
             //sql query
             String selectSql = "SELECT * FROM `blood_bank`;"
                                 + "SELECT * FROM `blood_bank_address`;";
-  
+                                //set join string here
             ResultSet rs = stmt.executeQuery(selectSql);
             
             boolean result = rs.next();
@@ -166,15 +161,16 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
                 {
                     BloodBank bloodBank = new BloodBank();
                     
-                    bloodBank.getName();
-                    bloodBank.getNumber();
-                    //bloodBank.getAddress();
+                    bloodBank.setId(rs.getString("idblood_bank"));
+                    bloodBank.setName(rs.getString("name"));
+                    bloodBank.setNumber(rs.getString("phone"));
+                    //bloodBank.getBloodBankAddress().setAddressId(rs.getString("address_id"));
                     
                     displayList.add(bloodBank);
                 }
                 System.out.println("Success!!!");
+                //return displayList;
             }
-            
         }
         catch(SQLException ex)
         {
@@ -185,7 +181,6 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
         }
         return displayList;
     }
-
     @Override
     public void deleteBloodBank(BloodBank bloodBank) throws SQLException {
         try
@@ -213,28 +208,20 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
             }
             else
             { //Delete 
-                String deleteQuery = "DELETE  FROM `blood_bank_address` WHERE `blood_bank_idblood_bank` = ? ;"
-                                    + "DELETE  FROM `blood_bank` WHERE `idblood_bank` = ?;";
+                String deleteQuery = "DELETE  FROM `blood_bank` WHERE `idblood_bank` = ?;"
+                                    + "DELETE  FROM `blood_bank_address` WHERE `address_id` = ? ;" ;
                 
                 //prepared statment
                 PreparedStatement delPstmt = this.getConnection().prepareStatement(deleteQuery);
-                
                 //setting preparedStatement params
                 delPstmt.setString(1,bloodBank.getId());
-                delPstmt.setString(2,bloodBank.getId());
-                
+                delPstmt.setString(2,bloodBank.getBloodBankAddress().getAddressId());
                 //executing statement
                 delPstmt.executeUpdate();
-                
-                System.out.println(bloodBank.getName() + "Blood Bank deleted!!");
+                System.out.println(bloodBank.getName() + " Blood Bank deleted!!");
             }
             
         }catch(SQLException ex){System.out.println("Error: " + ex.toString() + ", could not delete Blood Bank!");}finally{close();}
-    }
-
-    @Override
-    public void addBloodBank(BloodBankAddress bloodBank) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -58,6 +58,14 @@ public class BloodBank
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "address_id") //hibernate should generate this column
     public BloodBankAddress getBloodBankAddress(){ return address;}
+
+    @Override
+    public String toString() {
+        return "BloodBank{" + "idblood_bank=" + idblood_bank + ", name=" + name + ", number=" + number + ", address=" + address + '}';
+    }
+    
+    
+    
 }
     
     

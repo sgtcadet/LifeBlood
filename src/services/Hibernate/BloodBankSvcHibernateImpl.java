@@ -82,15 +82,16 @@ public class BloodBankSvcHibernateImpl  extends HibernateBaseConfiguration imple
             
          //  logger.error("Hibernate exception "+e.toString());
             if(tranx != null) tranx.rollback(); //roll back transation if error occured
-            throw new HibernateException("Unable to store blood bank information "+e.toString());         
+            throw new HibernateException("Unable to update blood bank information "+e.toString());         
         }
          
         finally
         {           
             //session.flush();
-            //session.close();                  
+            session.close();                  
         }
     }
+    //TODO : fix list display
     @Override
     public List<BloodBank> getAllBloodBank() throws SQLException {
          List<BloodBank> bloobBankList = new ArrayList<>();
@@ -113,6 +114,7 @@ public class BloodBankSvcHibernateImpl  extends HibernateBaseConfiguration imple
         {
             
          // closeSession();
+            session.close();
             
         }
          
@@ -120,7 +122,28 @@ public class BloodBankSvcHibernateImpl  extends HibernateBaseConfiguration imple
     }
     @Override
     public void deleteBloodBank(BloodBank bloodBank) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if( isDuplicateId(bloodBank.getId())==true){             
+            System.out.println("Found!!");
+            
+            Session session = BloodBankSvcHibernateImpl.getSession(); //gets the session
+            Transaction tranx = null; //transaction object
+            
+            try{
+                tranx = session.beginTransaction();
+                
+                session.delete(bloodBank);
+                
+                tranx.commit();
+            }catch(HibernateException e){
+                if(tranx != null) tranx.rollback(); //roll back transation if error occured
+                //logger.error("Hibernate insert error"+e.toString()+" in->"+StudentSvcHibernateImpl.class.getName());
+                throw new HibernateException("Unable to delete blood bank information "+e.toString());
+            }finally{session.close();}
+        }
+        else
+        {
+            throw new SQLException("That record is not found exist");
+        }
     }
     private boolean isDuplicateId(String id) throws HibernateException
     {
@@ -153,42 +176,4 @@ public class BloodBankSvcHibernateImpl  extends HibernateBaseConfiguration imple
         return numDuplicate != 0;       
     }
 
-    /*NEW IMPL*/
-    
-    @Override
-    public void addBloodBank(BloodBankAddress bAddress) throws SQLException {
-//        //logger.info("in the addStudent(Student student) method in "+BloodBankSvcHibernateImpl.class.getName());
-//        System.out.println( "<< " + bAddress.getBloodBank().getId() + ">>");
-//        if( isDuplicateId(bAddress.getBloodBank().getId())==true){
-//          //if( isDuplicateId(bAddress.getId())==true)
-//              throw new SQLException("That record already exist");
-//
-//        }else{
-//            Session session = BloodBankSvcHibernateImpl.getSession(); //gets the session
-//            Transaction tranx =null; //transaction object
-//
-//
-//            try
-//            {
-//              // logger.warn("in try, may cause errors");
-//                 tranx = session.beginTransaction();
-//                 session.save(bAddress);
-//                 tranx.commit();
-//            }
-//            catch(HibernateException e)
-//            {
-//
-//
-//                if(tranx != null) tranx.rollback(); //roll back transation if error occured
-//                 //logger.error("Hibernate insert error"+e.toString()+" in->"+StudentSvcHibernateImpl.class.getName());
-//                throw new HibernateException("Unable to store blood bank information "+e.toString());         
-//            } 
-//            finally{           
-//               //closeSession();
-//                session.close();
-//            }
-//        }
-//        
-//        
-    }
 }

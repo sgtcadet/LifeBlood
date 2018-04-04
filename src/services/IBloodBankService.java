@@ -20,12 +20,7 @@ public interface IBloodBankService extends IService
     public final String NAME = "IBloodBankService";
     
     public void addBloodBank(BloodBank bloodBank) throws SQLException;
-    
-    public void addBloodBank(BloodBankAddress bloodBank) throws SQLException;
-    
     public void upDateBloodBank(BloodBank bloodBank) throws SQLException;
-    
     public List<BloodBank> getAllBloodBank() throws SQLException;
-    
     public void deleteBloodBank(BloodBank bloodBank) throws SQLException;
 }
