@@ -53,25 +53,23 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
             {
                 //COMPLETED (2) Add allowMultiQueries=true to database string inorder to support multiple querys;
                 //THOUGHTS (2) could this pose a security threat
-                String insertSQL = "INSERT INTO `blood_bank` (`idblood_bank`, `name`, `phone` ) VALUES(?,?,?);"
-                        + "INSERT INTO `blood_bank_address` (`blood_bank_idblood_bank`,`street`, `address_line_1`, `address_line_2`) VALUES (?,?,?,?)";
-                
+//                String insertSQL = "INSERT INTO `blood_bank` (`idblood_bank`, `name`, `phone` ) VALUES(?,?,?);"
+//                        + "INSERT INTO `blood_bank_address` (`blood_bank_idblood_bank`,`street`, `address_line_1`, `address_line_2`) VALUES (?,?,?,?)";
+                 String insertSQL = "INSERT INTO `blood_bank_address` (`address_id`,`street`, `address_line_1`, `address_line_2`) VALUES (?,?,?,?);"
+                         + "INSERT INTO `blood_bank` (`idblood_bank`, `name`, `phone`,`address_id` ) VALUES(?,?,?,?);"
+                         ;
                 //prepared statement
                 PreparedStatement pstmtInsert = this.getConnection().prepareStatement(insertSQL);
                 
                 
-                pstmtInsert.setString(1, bloodBank.getId());
-                pstmtInsert.setString(2, bloodBank.getName());
-                pstmtInsert.setString(3, bloodBank.getNumber());
-                
-                pstmtInsert.setString(4, bloodBank.getId());
-                // ARRAY ADDRESS
-                //String[] address = bloodBank.getAddress();
-                //Address address = bloodBank.getAddress();
-
-//                pstmtInsert.setString(5, address.getStreet());   //street
-//                pstmtInsert.setString(6, address.getAddressLine1());   //address line 1
-//                pstmtInsert.setString(7, address.getAddressLine2());   //address line 2
+                pstmtInsert.setString(1, bloodBank.getBloodBankAddress().getAddressId());
+                pstmtInsert.setString(2, bloodBank.getBloodBankAddress().getStreet());
+                pstmtInsert.setString(3, bloodBank.getBloodBankAddress().getAddressLine1());
+                pstmtInsert.setString(4, bloodBank.getBloodBankAddress().getAddressLine2());
+                pstmtInsert.setString(5, bloodBank.getId());
+                pstmtInsert.setString(6, bloodBank.getName());
+                pstmtInsert.setString(7, bloodBank.getNumber());
+                pstmtInsert.setString(8, bloodBank.getBloodBankAddress().getAddressId());
                 
                 //Execute the sql statement
                 pstmtInsert.executeUpdate();

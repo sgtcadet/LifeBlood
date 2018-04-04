@@ -48,26 +48,28 @@ public class LifeBlood {
         *BLOOD BANK
         */
         //String[] bAddress = {"7 Spanish Town Road", "Kingston 2", "St. Andrew"};
-        BloodBank bBank = new BloodBank(); //new BloodBank("KPH2","Kingston Public",bAddress,"998-7845");
-        BloodBankAddress bAddress = new BloodBankAddress();
+        BloodBankAddress bAddress = new BloodBankAddress("2","7 Spanish Town Road","Kingston 2", "St. Andrew");
+        BloodBank bBank = new BloodBank("KPH2","Kingston Public","998-7845",bAddress); //new BloodBank("KPH2","Kingston Public",bAddress,"998-7845");
         
-        bBank.setId("KPH2");
-        bBank.setName("Kingston Public");
-        bBank.setNumber("998-7845");
-        //bAddress.setId(bBank.getId());
-        bAddress.setBloodBank(bBank);
-//        bAddress.getBloodBank().setId("KPH2");
-//        bAddress.getBloodBank().setName("Kingston Public");
-//        bAddress.getBloodBank().setNumber("998-7845");
-        //bAddress.setId("KPH2");
-        bAddress.setStreet("7 Spanish Town Road");
-        bAddress.setAddressLine1("Kingston 2");
-        bAddress.setAddressLine2("St. Andrew");
+        
+//        bBank.setId("KPH2");
+//        bBank.setName("Kingston Public");
+//        bBank.setNumber("998-7845");
+//        //bAddress.setId(bBank.getId());
+//        //bAddress.setBloodBank(bBank);
+////        bAddress.getBloodBank().setId("KPH2");
+////        bAddress.getBloodBank().setName("Kingston Public");
+////        bAddress.getBloodBank().setNumber("998-7845");
+//        //bAddress.setId("KPH2");
+//        bAddress.setStreet("7 Spanish Town Road");
+//        bAddress.setAddressLine1("Kingston 2");
+//        bAddress.setAddressLine2("St. Andrew");
+        //bAddress.setBloodBank(bBank);
         
         
        
-        //BloodBankSvcJDBCImpl b = new BloodBankSvcJDBCImpl();
-        BloodBankSvcHibernateImpl b = new BloodBankSvcHibernateImpl();
+        BloodBankSvcJDBCImpl b = new BloodBankSvcJDBCImpl();
+        //BloodBankSvcHibernateImpl b = new BloodBankSvcHibernateImpl();
          
         /*
         *DONOR
@@ -97,8 +99,8 @@ public class LifeBlood {
                 //hImp.deleteHospital(h);
             
             /*BlOOD BANK TEST*/
-                //b.addBloodBank(bBank);
-                b.addBloodBank(bAddress);
+                b.addBloodBank(bBank);
+                //b.addBloodBank(bAddress);
                 //b.upDateBloodBank(bBank);
                 //b.getAllBloodBank();
                 //b.deleteHospital(bBank);

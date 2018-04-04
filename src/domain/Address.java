@@ -30,11 +30,9 @@ public abstract class Address {
 //    @Id
 //    @GeneratedValue(strategy=GenerationType.AUTO)
 //    private String id;
-    @Column (name = "street")
+    
     private String street;
-    @Column (name ="address_line_1")
     private String addressLine1;
-    @Column (name = "address_line_2")
     private String addressLine2;
     
     //Default Constructor
@@ -46,9 +44,11 @@ public abstract class Address {
         this.addressLine1 = addressLine1;
         this.addressLine2 = addressLine2;
     }
-    
+    @Column (name = "street")
     public String getStreet() {return street;}
+    @Column (name ="address_line_1")
     public String getAddressLine1() {return addressLine1;}
+    @Column (name = "address_line_2")
     public String getAddressLine2() {return addressLine2;}
 //    public String getId(){return id;}
   

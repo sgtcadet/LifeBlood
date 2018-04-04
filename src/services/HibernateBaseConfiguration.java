@@ -41,13 +41,15 @@ public abstract class HibernateBaseConfiguration {
                 CONFIG.configure("hibernate.cfg.xml");
                 
                 //add annotated classes
+                CONFIG.addAnnotatedClass(Person.class);
                 CONFIG.addAnnotatedClass(BloodBank.class);
                 CONFIG.addAnnotatedClass(Donor.class);
                 CONFIG.addAnnotatedClass(Receptionist.class);
                 CONFIG.addAnnotatedClass(Hospital.class);
-                CONFIG.addAnnotatedClass(Person.class);
                 CONFIG.addAnnotatedClass(Address.class);
                 CONFIG.addAnnotatedClass(BloodBankAddress.class);
+                
+                
                 //build the sessionFactory
                 sessionFactory = CONFIG.buildSessionFactory();
                 

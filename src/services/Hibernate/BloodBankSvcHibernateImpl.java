@@ -27,15 +27,15 @@ public class BloodBankSvcHibernateImpl  extends HibernateBaseConfiguration imple
     public void addBloodBank(BloodBank bloodBank) throws SQLException {
         //logger.info("in the addStudent(Student student) method in "+BloodBankSvcHibernateImpl.class.getName());
         
-     if( isDuplicateId(bloodBank.getId())==true)             
-           throw new SQLException("That record already exist");
-        
-       
-        
+        if( isDuplicateId(bloodBank.getId())==true)             
+            throw new SQLException("That record already exist");
+
+
+
         Session session = BloodBankSvcHibernateImpl.getSession(); //gets the session
-        Transaction tranx =null; //transaction object
-        
-        
+        Transaction tranx = null; //transaction object
+
+
         try
         {
           // logger.warn("in try, may cause errors");
@@ -45,17 +45,17 @@ public class BloodBankSvcHibernateImpl  extends HibernateBaseConfiguration imple
         }
         catch(HibernateException e)
         {
-            
-           
+
+
             if(tranx != null) tranx.rollback(); //roll back transation if error occured
              //logger.error("Hibernate insert error"+e.toString()+" in->"+StudentSvcHibernateImpl.class.getName());
             throw new HibernateException("Unable to store blood bank information "+e.toString());         
         }
-         
+
         finally
         {           
-         
-          
+
+
            //closeSession();
             session.close();
         }
@@ -146,7 +146,8 @@ public class BloodBankSvcHibernateImpl  extends HibernateBaseConfiguration imple
         finally
         {            
           
-         //   closeSession();                 
+         //   closeSession(); 
+            session.close();
         }      
         
         return numDuplicate != 0;       
@@ -156,36 +157,38 @@ public class BloodBankSvcHibernateImpl  extends HibernateBaseConfiguration imple
     
     @Override
     public void addBloodBank(BloodBankAddress bAddress) throws SQLException {
-        //logger.info("in the addStudent(Student student) method in "+BloodBankSvcHibernateImpl.class.getName());
-        System.out.println( "<< " + bAddress.getBloodBank().getId() + ">>");
-     if( isDuplicateId(bAddress.getBloodBank().getId())==true)
-       //if( isDuplicateId(bAddress.getId())==true)
-           throw new SQLException("That record already exist");
-        
-       
-        
-        Session session = BloodBankSvcHibernateImpl.getSession(); //gets the session
-        Transaction tranx =null; //transaction object
-        
-        
-        try
-        {
-          // logger.warn("in try, may cause errors");
-             tranx = session.beginTransaction();
-             session.save(bAddress);
-             tranx.commit();
-        }
-        catch(HibernateException e)
-        {
-            
-           
-            if(tranx != null) tranx.rollback(); //roll back transation if error occured
-             //logger.error("Hibernate insert error"+e.toString()+" in->"+StudentSvcHibernateImpl.class.getName());
-            throw new HibernateException("Unable to store blood bank information "+e.toString());         
-        } 
-        finally{           
-           //closeSession();
-            session.close();
-        }
+//        //logger.info("in the addStudent(Student student) method in "+BloodBankSvcHibernateImpl.class.getName());
+//        System.out.println( "<< " + bAddress.getBloodBank().getId() + ">>");
+//        if( isDuplicateId(bAddress.getBloodBank().getId())==true){
+//          //if( isDuplicateId(bAddress.getId())==true)
+//              throw new SQLException("That record already exist");
+//
+//        }else{
+//            Session session = BloodBankSvcHibernateImpl.getSession(); //gets the session
+//            Transaction tranx =null; //transaction object
+//
+//
+//            try
+//            {
+//              // logger.warn("in try, may cause errors");
+//                 tranx = session.beginTransaction();
+//                 session.save(bAddress);
+//                 tranx.commit();
+//            }
+//            catch(HibernateException e)
+//            {
+//
+//
+//                if(tranx != null) tranx.rollback(); //roll back transation if error occured
+//                 //logger.error("Hibernate insert error"+e.toString()+" in->"+StudentSvcHibernateImpl.class.getName());
+//                throw new HibernateException("Unable to store blood bank information "+e.toString());         
+//            } 
+//            finally{           
+//               //closeSession();
+//                session.close();
+//            }
+//        }
+//        
+//        
     }
 }

@@ -9,6 +9,7 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -26,24 +27,15 @@ import org.hibernate.annotations.Parameter;
 @Entity
 @Table (name = "blood_bank_address")
 public class BloodBankAddress extends Address{
-//public class BloodBankAddress{
-    @Id @GeneratedValue( generator = "newGenerator") 
-    @GenericGenerator( name ="newGenerator" , strategy="foreign",parameters ={ @Parameter( value = "bloodBank", name = "property")})
-    //@Column (name ="idblood_bank")
-    private String idblood_bank;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idblood_bank")
-    private BloodBank bloodBank; //virtual Entity Framework
-    
+    //private BloodBank bloodBank;
+    private String address_id;
     //DEFAULT CONSTRUCTOR
     public BloodBankAddress(){super();}
-    /*GETTERS*/
-    public String getId(){return idblood_bank;}
-    public BloodBank getBloodBank(){return bloodBank;}
-    /*SETTERS*/
-    public void setId(String id){this.idblood_bank = id;}
-    public void setBloodBank(BloodBank bank){this.bloodBank = bank;}
-    
-    
+    public BloodBankAddress(String id, String street, String addressLine1, String addressLine2){super(street,addressLine1,addressLine2); this.address_id = id;}
+    @Id
+    @Column(name = "address_id")
+    public String getAddressId(){return address_id;}
+    public void setAddressId(String id){this.address_id = id;}
+       
 }
