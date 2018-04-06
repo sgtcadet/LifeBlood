@@ -49,31 +49,28 @@ public class HospitalSvcJDBCImpl extends ConnectionManager implements IHospitalS
             {
                 //COMPLETED (2) Add allowMultiQueries=true to database string inorder to support multiple querys;
                 //THOUGHTS (2) could this pose a security threat
-                String insertSQL = "INSERT INTO `hospital` (`idhospital`, `name`, `phone` ) VALUES(?,?,?);"
-                        + "INSERT INTO `hospital_address` (`hospital_idhospital`,`street`, `address_line_1`, `address_line_2`) VALUES (?,?,?,?)";
+                String insertSQL = "INSERT INTO `hospital_address` (`address_id`,`street`, `address_line_1`, `address_line_2`) VALUES (?,?,?,?);"
+                        + "INSERT INTO `hospital` (`idhospital`, `name`, `phone`,`address_id` ) VALUES(?,?,?);";
                 
                 //prepared statement
                 PreparedStatement pstmtInsert = this.getConnection().prepareStatement(insertSQL);
                 
                 
-                pstmtInsert.setString(1, hospital.getHospitalId());
-                pstmtInsert.setString(2, hospital.getName());
-                pstmtInsert.setString(3, hospital.getPhone());
-                
-                pstmtInsert.setString(4, hospital.getHospitalId());
-                // ARRAY ADDRESS
-                String[] address = hospital.getAddress();
-                
-                pstmtInsert.setString(5, address[0]);   //street
-                pstmtInsert.setString(6, address[1]);   //address line 1
-                pstmtInsert.setString(7, address[2]);   //address line 2
+                pstmtInsert.setString(1, hospital.getHospitalAddress().getAddressId());
+                pstmtInsert.setString(2, hospital.getHospitalAddress().getStreet());
+                pstmtInsert.setString(3, hospital.getHospitalAddress().getAddressLine1());
+                pstmtInsert.setString(4, hospital.getHospitalAddress().getAddressLine2());
+                pstmtInsert.setString(5, hospital.getHospitalId());
+                pstmtInsert.setString(6, hospital.getName());
+                pstmtInsert.setString(7, hospital.getPhone());
+                pstmtInsert.setString(8, hospital.getHospitalAddress().getAddressId());
                 
                 //Execute the sql statement
                 pstmtInsert.executeUpdate();
                 
                 //Notifying users
                 System.out.println(hospital.getName() + " hospital added!!");
-                
+                //TODO (important) test this method
             }
         }
         catch( SQLException ex)
@@ -91,9 +88,10 @@ public class HospitalSvcJDBCImpl extends ConnectionManager implements IHospitalS
             this.connectToDatabase();
             
             String checkSQL     = "SELECT `idhospital` FROM `hospital` WHERE `idhospital` = ? ;";
-            String updateSQL    = "UPDATE `hospital` SET `name` = ?, `phone` = ? WHERE `idhospital` = ? ;"
-                                + "UPDATE `hospital_address` SET `street` = ?, `address_line_1` = ?, `address_line_2` = ? WHERE `hospital_idhospital` = ?";
-            
+//            String updateSQL    = "UPDATE `hospital` SET `name` = ?, `phone` = ? WHERE `idhospital` = ? ;"
+//                                + "UPDATE `hospital_address` SET `street` = ?, `address_line_1` = ?, `address_line_2` = ? WHERE `hospital_idhospital` = ?";
+              String updateSQL = "UPDATE `hospital` SET `name` = ?, `phone` = ? WHERE `idblood_bank` = ? ;"
+                                + "UPDATE `hospital_address` SET `street` = ?, `address_line_1` = ?, `address_line_2` = ? WHERE `address_id` = ?";
             //preparing statement
             PreparedStatement pstmt = this.getConnection().prepareStatement(checkSQL);
             
@@ -116,15 +114,13 @@ public class HospitalSvcJDBCImpl extends ConnectionManager implements IHospitalS
                 
                 updatePstmt.setString(1,hospital.getName());
                 updatePstmt.setString(2,hospital.getPhone());
-                updatePstmt.setString(3,hospital.getHospitalId()); //Hospital Address wont be able to change or should it?
+                updatePstmt.setString(3,hospital.getHospitalId()); 
                 
-                String[] address = hospital.getAddress();
-                
-                updatePstmt.setString(4,address[0]); //Street
-                updatePstmt.setString(5,address[1]); //address_line_1
-                updatePstmt.setString(6,address[2]); //address_line_2
-                
-                updatePstmt.setString(7,hospital.getHospitalId());
+                //address
+                updatePstmt.setString(4,hospital.getHospitalAddress().getStreet());
+                updatePstmt.setString(5,hospital.getHospitalAddress().getAddressLine1());
+                updatePstmt.setString(6,hospital.getHospitalAddress().getAddressLine2());
+                updatePstmt.setString(7,hospital.getHospitalAddress().getAddressId());
                 
                 updatePstmt.executeUpdate();
                 
@@ -161,15 +157,15 @@ public class HospitalSvcJDBCImpl extends ConnectionManager implements IHospitalS
                 {
                     Hospital hospital = new Hospital();
                     
-                    hospital.getName();
-                    hospital.getPhone();
-                    hospital.getAddress();
+                    hospital.setHospitalId(rs.getString("idhospital"));
+                    hospital.setName(rs.getString("name"));
+                    hospital.setPhone(rs.getString("phone"));
                     
                     displayList.add(hospital);
                 }
                 System.out.println("Success!!!");
             }
-            
+            //TODO (IMPORTANT) TEST THIS METHOD
         }
         catch(SQLException ex)
         {
@@ -217,14 +213,14 @@ public class HospitalSvcJDBCImpl extends ConnectionManager implements IHospitalS
                 
                 //setting preparedStatement params
                 delPstmt.setString(1,hospital.getHospitalId());
-                delPstmt.setString(2,hospital.getHospitalId());
+                delPstmt.setString(2,hospital.getHospitalAddress().getAddressId());
                 
                 //executing statement
                 delPstmt.executeUpdate();
                 
                 System.out.println(hospital.getName() + " deleted!!");
             }
-            
+            //TODO (IMPORTANT) TEST THIS METHOD
         }catch(SQLException ex){System.out.println("Error: " + ex.toString() + ", could not delete hospital!");}finally{close();}
     }
     

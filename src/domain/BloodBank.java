@@ -28,7 +28,7 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 @Table( name = "blood_bank" )
-public class BloodBank 
+public class BloodBank implements Serializable 
 {
     private String idblood_bank;
     private String name;

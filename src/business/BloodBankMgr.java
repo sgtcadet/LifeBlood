@@ -24,7 +24,8 @@ public class BloodBankMgr extends Manager{
     //@throws ServiceLoadException
     //@throws SQLException
     
-    public void addBloodBank(BloodBank bloodBank) throws Exception{
+    public void addBloodBank(BloodBank bloodBank) throws Exception
+    {
         IBloodBankService bloodBankSvc = (IBloodBankService) this.getService(IBloodBankService.NAME);
         bloodBankSvc.addBloodBank(bloodBank);
     }

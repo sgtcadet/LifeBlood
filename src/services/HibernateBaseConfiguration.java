@@ -10,19 +10,20 @@ import domain.BloodBank;
 import domain.BloodBankAddress;
 import domain.Donor;
 import domain.Hospital;
+import domain.HospitalAddress;
 import domain.Person;
 import domain.Receptionist;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
 /**
  *
  * @author howar
  */
 public abstract class HibernateBaseConfiguration {
     private static final Configuration CONFIG = new Configuration(); //Used to read in the Hibernate configuration
+    //private static final Configuration CONFIG = new Configuration(); 
     private static SessionFactory sessionFactory = null; //A factory for acquiring Hibernate Sessions
     
      
@@ -41,14 +42,14 @@ public abstract class HibernateBaseConfiguration {
                 CONFIG.configure("hibernate.cfg.xml");
                 
                 //add annotated classes
-                CONFIG.addAnnotatedClass(Person.class);
+                //CONFIG.addAnnotatedClass(Person.class);
                 CONFIG.addAnnotatedClass(BloodBank.class);
-                CONFIG.addAnnotatedClass(Donor.class);
-                CONFIG.addAnnotatedClass(Receptionist.class);
-                CONFIG.addAnnotatedClass(Hospital.class);
-                CONFIG.addAnnotatedClass(Address.class);
                 CONFIG.addAnnotatedClass(BloodBankAddress.class);
-                
+//                CONFIG.addAnnotatedClass(Donor.class);
+//                CONFIG.addAnnotatedClass(Receptionist.class);
+//                CONFIG.addAnnotatedClass(Hospital.class);
+//                CONFIG.addAnnotatedClass(Address.class);         
+//                CONFIG.addAnnotatedClass(HospitalAddress.class);
                 
                 //build the sessionFactory
                 sessionFactory = CONFIG.buildSessionFactory();
