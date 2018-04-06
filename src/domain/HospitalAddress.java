@@ -5,6 +5,7 @@
  */
 package domain;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,19 +17,17 @@ import javax.persistence.Table;
  */
 @Entity
 @Table (name = "hospital_address")
-public class HospitalAddress extends Address{
+public class HospitalAddress extends Address implements Serializable{
     private String address_id;
     //DEFAULT CONSTRUCTOR
     
     
     public HospitalAddress(){super();}
     public HospitalAddress(String id, String street, String addressLine1, String addressLine2){super(street,addressLine1,addressLine2); this.address_id = id;}
-    
     @Id
     @Column(name = "address_id")
     public String getAddressId(){return address_id;}
     public void setAddressId(String id){this.address_id = id;}
-
     @Override
     public String toString() {
         return super.toString() +" HospitalAddress{" + "address_id=" + address_id + '}';

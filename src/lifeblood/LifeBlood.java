@@ -11,6 +11,7 @@ import domain.BloodBank;
 import domain.BloodBankAddress;
 import domain.Donor;
 import domain.Hospital;
+import domain.HospitalAddress;
 import domain.Receptionist;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -41,14 +42,26 @@ public class LifeBlood {
         /*****************************
         *     BLOOD BANK INSTANCE
         ****************************/
-        BloodBankAddress bAddress = new BloodBankAddress("1","8 Stennette Street","Port Maria", "St. St.Mary");
-        BloodBank bBank = new BloodBank("KPH8","St Mary Jubilee","994-7845",bAddress); //new BloodBank("KPH2","Kingston Public",bAddress,"998-7845");
+//        BloodBankAddress bAddress = new BloodBankAddress("1","8 Stennette Street","Port Maria", "St. St.Mary");
+//        BloodBank bBank = new BloodBank("KPH8","St Mary Jubilee","994-7845",bAddress); //new BloodBank("KPH2","Kingston Public",bAddress,"998-7845");
+//        /*JDBC Implementation*/
+//        //BloodBankSvcJDBCImpl b = new BloodBankSvcJDBCImpl();
+//        /*Hibernate Implementation*/
+//        BloodBankSvcHibernateImpl b = new BloodBankSvcHibernateImpl();
+//        BloodBankMgr bankMrg = new BloodBankMgr();
+//        List<BloodBank> bBankList = new ArrayList(); 
+
+        /**********************************
+         *      HOSPITAL INSTANCE 
+         * ********************************/
+        HospitalAddress hAddress = new HospitalAddress("1","7 Update Street","Port Maria", "St. St.Mary");
+        Hospital hospital = new Hospital("PM08","Port Update Hospital","994-7412",hAddress); //new BloodBank("KPH2","Kingston Public",bAddress,"998-7845");
         /*JDBC Implementation*/
-        //BloodBankSvcJDBCImpl b = new BloodBankSvcJDBCImpl();
+        HospitalSvcJDBCImpl h = new HospitalSvcJDBCImpl();
         /*Hibernate Implementation*/
-        BloodBankSvcHibernateImpl b = new BloodBankSvcHibernateImpl();
-        BloodBankMgr bankMrg = new BloodBankMgr();
-        List<BloodBank> bBankList = new ArrayList(); 
+        //BloodBankSvcHibernateImpl b = new BloodBankSvcHibernateImpl();
+        //BloodBankMgr bankMrg = new BloodBankMgr();
+        //List<BloodBank> bBankList = new ArrayList()
     
         
         /*
@@ -62,12 +75,28 @@ public class LifeBlood {
 //        ReceptionistSvcJDBCImpl rnist = new ReceptionistSvcJDBCImpl();
         try{
             
-           
-            /*BLOOD BANK TEST*/
+            /****************
+             * HOSPITAL IMPL
+             * */
+            //h.addHospital(hospital);
+            //h.updateHospital(hospital);
+//            List<Hospital> hospitals = new ArrayList();
+//            hospitals = h.getAllHospital();
+//            
+//            Iterator<Hospital> hosItor = hospitals.iterator();
+//            while (hosItor.hasNext()){System.out.println(hosItor.next().toString());}
+//            for(Hospital hos : hospitals)
+//            {
+//                System.out.println(hos.toString());
+//            }
+              h.deleteHospital(hospital);
+            /**********************
+             * BLOOD BANK TEST
+             **********************/
                 //bankMrg.addBloodBank(bBank);
                 //b.addBloodBank(bBank);
                 //bankMrg.upDateBloodBank(bBank);
-                  bBankList = bankMrg.getAllBloodBank();
+                  //bBankList = bankMrg.getAllBloodBank();
 //                 
 //                Iterator<BloodBank> bBankIter = bBankList.iterator();
 //        

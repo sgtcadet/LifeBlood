@@ -5,6 +5,7 @@
  */
 package domain;
 
+import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,18 +21,14 @@ import javax.persistence.Table;
  */
 @Entity
 @Table (name = "hospital")
-public class Hospital 
+public class Hospital implements Serializable 
 {
     private String hostpitalId;
     private String name;
-    //TODO ADD ANNOTATION FOR ADDRESS
     private String phone; //Hospital will have only one phone number
     private HospitalAddress address;
-    
-    
     //Default constructor
     public Hospital(){}
-    
     //Primary constructor
     public Hospital(String hostpitalId, String name,  String phone, HospitalAddress address) {
         this.hostpitalId = hostpitalId;
@@ -39,10 +36,6 @@ public class Hospital
         this.phone = phone;
         this.address = address; 
     }
-    
-    
-    
-    
     /*
     * GETTERS
     **/
@@ -54,10 +47,8 @@ public class Hospital
     @Column (name = "idhospital")
     public String getHospitalId(){ return this.hostpitalId;}
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "address_id") //hibernate should generate this column
-    public HospitalAddress getHospitalAddress(){ return address;} //ARRAY OF STRINGS ADDRESSES
-    
-    
+    @JoinColumn(name = "address_id") //hibernate should generate this column (THOUGHT)
+    public HospitalAddress getHospitalAddress(){ return address;}
     /*
     * SETTERS
     **/
@@ -68,7 +59,7 @@ public class Hospital
 
     @Override
     public String toString() {
-        return "Hospital{" + "hostpitalId=" + hostpitalId + ", name=" + name + ", phone=" + phone + ", address=" + address + '}';
+        return "Hospital{" + "hostpitalId=" + hostpitalId + ", name=" + name + ", phone=" + phone + ", address=" + address.toString() + '}';
     }
     
     

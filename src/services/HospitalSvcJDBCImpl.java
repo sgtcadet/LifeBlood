@@ -6,6 +6,7 @@
 package services;
 
 import domain.Hospital;
+import domain.HospitalAddress;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -50,7 +51,7 @@ public class HospitalSvcJDBCImpl extends ConnectionManager implements IHospitalS
                 //COMPLETED (2) Add allowMultiQueries=true to database string inorder to support multiple querys;
                 //THOUGHTS (2) could this pose a security threat
                 String insertSQL = "INSERT INTO `hospital_address` (`address_id`,`street`, `address_line_1`, `address_line_2`) VALUES (?,?,?,?);"
-                        + "INSERT INTO `hospital` (`idhospital`, `name`, `phone`,`address_id` ) VALUES(?,?,?);";
+                        + "INSERT INTO `hospital` (`idhospital`, `name`, `phone`,`address_id` ) VALUES(?,?,?,?);";
                 
                 //prepared statement
                 PreparedStatement pstmtInsert = this.getConnection().prepareStatement(insertSQL);
@@ -90,7 +91,7 @@ public class HospitalSvcJDBCImpl extends ConnectionManager implements IHospitalS
             String checkSQL     = "SELECT `idhospital` FROM `hospital` WHERE `idhospital` = ? ;";
 //            String updateSQL    = "UPDATE `hospital` SET `name` = ?, `phone` = ? WHERE `idhospital` = ? ;"
 //                                + "UPDATE `hospital_address` SET `street` = ?, `address_line_1` = ?, `address_line_2` = ? WHERE `hospital_idhospital` = ?";
-              String updateSQL = "UPDATE `hospital` SET `name` = ?, `phone` = ? WHERE `idblood_bank` = ? ;"
+              String updateSQL = "UPDATE `hospital` SET `name` = ?, `phone` = ? WHERE `idhospital` = ? ;"
                                 + "UPDATE `hospital_address` SET `street` = ?, `address_line_1` = ?, `address_line_2` = ? WHERE `address_id` = ?";
             //preparing statement
             PreparedStatement pstmt = this.getConnection().prepareStatement(checkSQL);
@@ -156,10 +157,16 @@ public class HospitalSvcJDBCImpl extends ConnectionManager implements IHospitalS
                 while(rs.next())
                 {
                     Hospital hospital = new Hospital();
+                    HospitalAddress address= new HospitalAddress();
                     
                     hospital.setHospitalId(rs.getString("idhospital"));
                     hospital.setName(rs.getString("name"));
                     hospital.setPhone(rs.getString("phone"));
+                    hospital.setAddress(address);
+                    hospital.getHospitalAddress().setAddressId(rs.getString("address_id"));
+                    hospital.getHospitalAddress().setStreet(rs.getString("street"));
+                    hospital.getHospitalAddress().setAddressLine1(rs.getString("address_line_1"));
+                    hospital.getHospitalAddress().setAddressLine2(rs.getString("address_line_2"));
                     
                     displayList.add(hospital);
                 }
@@ -205,8 +212,8 @@ public class HospitalSvcJDBCImpl extends ConnectionManager implements IHospitalS
             }
             else
             { //Delete 
-                String deleteQuery = "DELETE  FROM `hospital_address` WHERE `hospital_idhospital` = ? ;"
-                                    + "DELETE  FROM `hospital` WHERE `idhospital` = ?;";
+                String deleteQuery = "DELETE  FROM `hospital` WHERE `idhospital` = ?;"
+                        + "DELETE  FROM `hospital_address` WHERE `address_id` = ? ;";
                 
                 //prepared statment
                 PreparedStatement delPstmt = this.getConnection().prepareStatement(deleteQuery);
