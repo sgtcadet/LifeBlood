@@ -6,6 +6,7 @@
 package services;
 
 import domain.BloodBank;
+import domain.PersonAddress;
 import domain.Receptionist;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -51,42 +52,46 @@ public class ReceptionistSvcJDBCImpl extends ConnectionManager implements IRecep
                 }
                 else
                 { //else if user hasnt already donated, add their personal data to the person table and allow them to donate
-                    String newPersonSQL = "INSERT INTO `receptionist` (`trn`,`firstname`,`lastname`,`email`,`gender`,`dob`,`blood_bank_idblood_bank`) VALUES (?,?,?,?,?,?,?);"
-                            + "INSERT INTO `address` (`trn`,`street`, `address_line_1`, `address_line_2`) VALUES (?,?,?,?);"
-                            + "INSERT INTO `phone` (`trn`,`phone_number_1`,`phone_number_2`) VALUES (?,?,?);";
-                            //+ "INSERT INTO `blood_bank_has_donor` (`blood_bank_idblood_bank`,`donor_trn`) VALUES (?,?);";
+//                    String newPersonSQL = "INSERT INTO `receptionist` (`trn`,`firstname`,`lastname`,`email`,`gender`,`dob`,`blood_bank_idblood_bank`) VALUES (?,?,?,?,?,?,?);"
+//                            + "INSERT INTO `address` (`trn`,`street`, `address_line_1`, `address_line_2`) VALUES (?,?,?,?);"
+//                            + "INSERT INTO `phone` (`trn`,`phone_number_1`,`phone_number_2`) VALUES (?,?,?);";
+                  String newPersonSQL ="INSERT INTO `address` (`street`, `address_line_1`, `address_line_2`) VALUES (?,?,?);"
+                            + "INSERT INTO `phone` (`phone_number_1`,`phone_number_2`) VALUES (?,?);"
+                          +"INSERT INTO `receptionist` (`trn`,`firstname`,`lastname`,`email`,`gender`,`dob`,`blood_bank_idblood_bank`) VALUES (?,?,?,?,?,?,?);";         
                     
-                    //prepared statement
-                    PreparedStatement pstmtNewInsert = this.getConnection().prepareStatement(newPersonSQL);
-                    
-                    //Setting params
-                    pstmtNewInsert.setString(1, receptionist.getTrn());
-                    pstmtNewInsert.setString(2, receptionist.getFirstname());
-                    pstmtNewInsert.setString(3, receptionist.getLastname());
-                    pstmtNewInsert.setString(4, receptionist.getEmail());
-                    pstmtNewInsert.setString(5, receptionist.getGender());
-                    pstmtNewInsert.setDate(6, (Date) receptionist.getDob());
-                    pstmtNewInsert.setString(7, bloodBank.getId());
-                    
-                    
-                    //address INSERT PARAMS
-                    pstmtNewInsert.setString(8, receptionist.getTrn());
-                    
-                    String [] address = receptionist.getAddress();
-                    pstmtNewInsert.setString(9, address[0]);   //street
-                    pstmtNewInsert.setString(10, address[1]);   //address line 1
-                    pstmtNewInsert.setString(11, address[2]);   //address line 2
-                    
-                    //phone INSERT PARAMS
-                    pstmtNewInsert.setString(12, receptionist.getTrn());
-                    
-                    String [] phone = receptionist.getNumber();
-                    pstmtNewInsert.setString(13, phone[0]);   //phone 1
-                    pstmtNewInsert.setString(14, phone[1]);   //phone 2
- 
-                    pstmtNewInsert.executeUpdate();
-                    
-                    System.out.println(receptionist.getFirstname() + " " + receptionist.getLastname() + " => Receptionist added!!");
+//                    //prepared statement
+//                    PreparedStatement pstmtNewInsert = this.getConnection().prepareStatement(newPersonSQL);
+//                    
+//                    pstmtNewInsert.setString(1, receptionist.getAddress().getStreet());   //street
+//                    pstmtNewInsert.setString(2, receptionist.getAddress().getAddressLine1());   //address line 1
+//                    pstmtNewInsert.setString(3, receptionist.getAddress().getAddressLine2());
+//                    
+//                    String [] phone = receptionist.getNumber();
+//                    pstmtNewInsert.setString(4, phone[0]);   //phone 1
+//                    pstmtNewInsert.setString(5, phone[1]);   //phone 2
+//                    
+//                    
+//                    //Setting params
+//                    pstmtNewInsert.setString(6,receptionist.getTrn());
+//                    pstmtNewInsert.setString(7, receptionist.getFirstname());
+//                    pstmtNewInsert.setString(8, receptionist.getLastname());
+//                    pstmtNewInsert.setString(9, receptionist.getEmail());
+//                    pstmtNewInsert.setString(10, receptionist.getGender());
+//                    pstmtNewInsert.setDate(11, (Date) receptionist.getDob());
+//                    pstmtNewInsert.setString(12, bloodBank.getId());
+//                    
+//                    
+//                    //address INSERT PARAMS
+//                    //pstmtNewInsert.setString(8, receptionist.getTrn());
+//                       //address line 2
+//                    
+//                    //phone INSERT PARAMS
+//                    //pstmtNewInsert.setString(12, receptionist.getTrn());
+//                    
+// 
+//                    pstmtNewInsert.executeUpdate();
+//                    
+//                    System.out.println(receptionist.getFirstname() + " " + receptionist.getLastname() + " => Receptionist added!!");
                 }
             //}
         }
@@ -140,19 +145,22 @@ public class ReceptionistSvcJDBCImpl extends ConnectionManager implements IRecep
                     //person address
                     
                     //address
-                    String [] address = receptionist.getAddress();
-                    updatePstmt.setString(7, address[0]);   //street
-                    updatePstmt.setString(8, address[1]);   //address line 1
-                    updatePstmt.setString(9, address[2]);   //address line 2
+//                    String [] address = receptionist.getAddress();
+//                    updatePstmt.setString(7, address[0]);   //street
+//                    updatePstmt.setString(8, address[1]);   //address line 1
+//                    updatePstmt.setString(9, address[2]);   //address line 2
+                    updatePstmt.setString(9, receptionist.getAddress().getStreet());   //street
+                    updatePstmt.setString(10, receptionist.getAddress().getAddressLine1());   //address line 1
+                    updatePstmt.setString(11, receptionist.getAddress().getAddressLine2());   //address line 2
                     updatePstmt.setString(10, receptionist.getTrn());
                     
                     
                     //phone
-                    String [] phone = receptionist.getNumber();
-                    updatePstmt.setString(11, phone[0]);   //phone 1
-                    updatePstmt.setString(12, phone[1]);   //phone 2
-                    updatePstmt.setString(13, receptionist.getTrn());
-                    
+//                    String [] phone = receptionist.getNumber();
+//                    updatePstmt.setString(11, phone[0]);   //phone 1
+//                    updatePstmt.setString(12, phone[1]);   //phone 2
+//                    updatePstmt.setString(13, receptionist.getTrn());
+//                    
                     
                 updatePstmt.executeUpdate();
                 
@@ -189,12 +197,12 @@ public class ReceptionistSvcJDBCImpl extends ConnectionManager implements IRecep
                 {
                     Receptionist receptionist = new Receptionist();
                     
-                    receptionist.getTrn();
-                    receptionist.getFirstname();
-                    receptionist.getLastname();
-                    receptionist.getNumber();
-                    receptionist.getAddress();
-                    
+//                    receptionist.getTrn();
+//                    receptionist.getFirstname();
+//                    receptionist.getLastname();
+//                    receptionist.getNumber();
+//                    receptionist.getAddress();
+//                    
                     displayList.add(receptionist);
                 }
                 System.out.println("Success!!!");

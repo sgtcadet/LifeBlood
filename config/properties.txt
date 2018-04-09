@@ -1,2 +1,4 @@
+IDonorService = services.DonorSvcJDBCImpl
 IBloodBankService= services.Hibernate.BloodBankSvcHibernateImpl
 IHospitalService= services.Hibernate.HospitalSvcHibernateImpl
+IReceptionistService = services.ReceptionistSvcJDBCImpl

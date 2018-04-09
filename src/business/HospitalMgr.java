@@ -14,7 +14,7 @@ import services.IHospitalService;
  * @author howar
  */
 public class HospitalMgr extends Manager{
-    
+    //TODO COMPLETE HOSPITAL MANAGER
     public void addHospital(Hospital hospital) throws Exception{
         IHospitalService bloodBankSvc = (IHospitalService) this.getService(IHospitalService.NAME);
         bloodBankSvc.addHospital(hospital);

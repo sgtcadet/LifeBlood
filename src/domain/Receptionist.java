@@ -5,9 +5,11 @@
  */
 package domain;
 
+import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -16,25 +18,33 @@ import javax.persistence.Table;
  */
 @Entity
 @Table (name="receptionist")
-public class Receptionist extends Person{
-    @Column (name="blood_bank_idblood_bank")
-    private String receptionistId;
-    //THOUGHTS this is a foreign key form the blood bank table | may need to be modified
-    //default constructor
-    public Receptionist(){super();}
-    
-    public Receptionist(String trn, String firstname, String lastname, String email, String gender, Date dob, String[] number, String[] address, String repId)
-    {
-        super(trn,firstname,lastname,email,gender,dob,number,address);
-        setReceptionistId(repId);
-    }
-    
-    public Receptionist(String trn, String firstname, String lastname, String email, String gender, Date dob, String[] number, String[] address)
-    {
-        super(trn,firstname,lastname,email,gender,dob,number,address);
-        //setReceptionistId(donationId);
-    }
-    
-    public void setReceptionistId(String id){ this.receptionistId = id;}
-    public String getReceptionistId(){ return receptionistId;}
+public class Receptionist extends Person implements Serializable{
+//    private BloodBank bloodBank;
+//    //private PersonAddress address;
+//    private String[] phone;
+//    
+//    public Receptionist(){super();}
+//
+//    public Receptionist(BloodBank bloodBank) {
+//        this.bloodBank = bloodBank;
+//    }
+//
+//    public Receptionist(BloodBank bloodBank, String trn, String firstname, String lastname, String email, String gender, Date dob, Phone number, PersonAddress address) {
+//        super(trn, firstname, lastname, email, gender, dob, number, address);
+//        this.bloodBank = bloodBank;
+//    }
+//    
+//    public Receptionist(BloodBank bloodBank, String trn, String firstname, String lastname, String email, String gender, Date dob, String[] number, PersonAddress address) {
+//        super(trn, firstname, lastname, email, gender, dob, address);
+//        this.bloodBank = bloodBank;
+//        this.phone = number;
+//    }
+//
+//    @OneToOne
+//    public BloodBank getBloodBank() {return bloodBank;}
+//    public void setBloodBank(BloodBank bloodBank) {this.bloodBank = bloodBank;}
+//    @OneToOne
+//    public String[] getNumber(){return phone;}
+//    public void SetNumber( String[] num){this.phone = num;}
+   
 }

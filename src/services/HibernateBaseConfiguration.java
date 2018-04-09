@@ -12,7 +12,7 @@ import domain.Donor;
 import domain.Hospital;
 import domain.HospitalAddress;
 import domain.Person;
-import domain.Receptionist;
+//import domain.Receptionist;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -45,11 +45,12 @@ public abstract class HibernateBaseConfiguration {
                 //CONFIG.addAnnotatedClass(Person.class);
                 CONFIG.addAnnotatedClass(BloodBank.class);
                 CONFIG.addAnnotatedClass(BloodBankAddress.class);
+                //CONFIG.addAnnotatedClass(Hospital.class);
+                //CONFIG.addAnnotatedClass(HospitalAddress.class);
 //                CONFIG.addAnnotatedClass(Donor.class);
 //                CONFIG.addAnnotatedClass(Receptionist.class);
-//                CONFIG.addAnnotatedClass(Hospital.class);
 //                CONFIG.addAnnotatedClass(Address.class);         
-//                CONFIG.addAnnotatedClass(HospitalAddress.class);
+                
                 
                 //build the sessionFactory
                 sessionFactory = CONFIG.buildSessionFactory();

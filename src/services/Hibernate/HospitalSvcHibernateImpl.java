@@ -21,48 +21,51 @@ import services.IHospitalService;
  *
  * @author howar
  */
-//public class HospitalSvcHibernateImpl extends HibernateBaseConfiguration implements IHospitalService{
+public class HospitalSvcHibernateImpl extends HibernateBaseConfiguration implements IHospitalService{
     //class logger
-//    private static Logger logger = Logger.getLogger(HospitalSvcHibernateImpl.class);
-//    @Override
-//    public void addHospital(Hospital hospital) throws SQLException {
-//        logger.info("in the addHospital(Hospital hospital) method in "+HospitalSvcHibernateImpl.class.getName());
+    //private static Logger logger = Logger.getLogger(HospitalSvcHibernateImpl.class);
+    @Override
+    public void addHospital(Hospital hospital) throws SQLException {
+        
+        System.out.println("Add Hospital");
+        //logger.info("in the addHospital(Hospital hospital) method in "+HospitalSvcHibernateImpl.class.getName());
 //        
-//        if( isDuplicateId(hospital.getHospitalId())==true)             
-//            throw new SQLException("That record already exist");
+        if( isDuplicateId(hospital.getHospitalId())==true)             
+            throw new SQLException("That record already exist");
+        else
+            System.out.println("wanna Add Hospital");
 //
 //
-//
-//        Session session = HospitalSvcHibernateImpl.getSession(); //gets the session
-//        Transaction tranx = null; //transaction object
-//
-//
-//        try
-//        {
-//           logger.warn("in try, may cause errors");
-//             tranx = session.beginTransaction();
-//             session.save(hospital);
-//             tranx.commit();
-//        }
-//        catch(HibernateException e)
-//        {
+        Session session = HospitalSvcHibernateImpl.getSession(); //gets the session
+        Transaction tranx = null; //transaction object
 //
 //
-//            if(tranx != null) tranx.rollback(); //roll back transation if error occured
-//            logger.error("Hibernate insert error"+e.toString()+" in->"+HospitalSvcHibernateImpl.class.getName());
-//            throw new HibernateException("Unable to store hospital information "+e.toString());         
-//        }
-//        finally
-//        {           
-//           //closeSession();
-//            session.close();
-//        }
-//        
-//        //TODO(IMPORTANT) HIBERNATE TEST THIS METHOD
-//    }
-//
-//    @Override
-//    public void updateHospital(Hospital hospital) throws SQLException {
+        try
+        {
+           //logger.warn("in try, may cause errors");
+             tranx = session.beginTransaction();
+             session.save(hospital);
+             tranx.commit();
+        }
+        catch(HibernateException e)
+        {
+
+
+            if(tranx != null) tranx.rollback(); //roll back transation if error occured
+            //logger.error("Hibernate insert error"+e.toString()+" in->"+HospitalSvcHibernateImpl.class.getName());
+            throw new HibernateException("Unable to store hospital information "+e.toString());         
+        }
+        finally
+        {           
+           //closeSession();
+            session.close();
+        }
+        
+        //TODO(IMPORTANT) HIBERNATE TEST THIS METHOD
+    }
+
+    @Override
+    public void updateHospital(Hospital hospital) throws SQLException {
 //        logger.info("updateHospital(Hospital hospital) ");
 ////        if( isDuplicateId(student.getIdNumber())==true)             
 ////            throw new Exception("That record already exist");       
@@ -90,11 +93,11 @@ import services.IHospitalService;
 //            //session.flush();
 //            session.close();                  
 //        }
-//        //TODO (IMPORTANT) HIBERNATE TEST THIS METHOD
-//    }
-//
-//    @Override
-//    public List<Hospital> getAllHospital() throws SQLException {
+        //TODO (IMPORTANT) HIBERNATE TEST THIS METHOD
+    }
+
+    @Override
+    public List<Hospital> getAllHospital() throws SQLException {
 //        logger.info("getAllHospital() ");
 //         List<Hospital> hospitalList = new ArrayList<>();
 //        
@@ -109,7 +112,7 @@ import services.IHospitalService;
 //        catch(Exception e)
 //        {
 //          System.out.println("e--"+e.toString());
-//            throw new HibernateException("Unable to retreive Data: "+e.toString());         
+            throw new HibernateException("Unable to retreive Data: ");//+e.toString());         
 //        }
 //        finally
 //        {  
@@ -117,11 +120,11 @@ import services.IHospitalService;
 //            session.close();     
 //        }
 //        return hospitalList;
-//        //TODO (IMPORTANT) HIBERNATE TEST THIS METHOD
-//    }
-//
-//    @Override
-//    public void deleteHospital(Hospital hospital) throws SQLException {
+        //TODO (IMPORTANT) HIBERNATE TEST THIS METHOD
+    }
+
+    @Override
+    public void deleteHospital(Hospital hospital) throws SQLException {
 //        if( isDuplicateId(hospital.getHospitalId())==true){             
 //            System.out.println("Found!!");
 //            
@@ -144,34 +147,35 @@ import services.IHospitalService;
 //        {
 //            throw new SQLException("That record is not found exist");
 //        }
-//        //TODO (IMPORTANT) HIBERNATE TEST THIS METHOD
-//    }
-//    private boolean isDuplicateId(String id) throws HibernateException{
-//  
-//         int numDuplicate = 0;//local variable for storing count value returned 
-//         Session session = getSession(); //gets the session         
-//             
-//             
-//        
-//         try
-//        {
-//              //using SQL query in Hibernate
-//              NativeQuery  nativeQuery = session.createNativeQuery("SELECT Count(*) AS Duplicates FROM hospital WHERE idhospital = '" + id + "'"); 
-//              numDuplicate = Integer.parseInt(nativeQuery.uniqueResult().toString()); //gets the result from query 
-//        }
-//        catch(HibernateException e)
-//        {
-//            
-//            throw new HibernateException("Unable to retreive Data"+e);         
-//        }
-//         
-//        finally
-//        {            
-//          
-//         //   closeSession(); 
-//            session.close();
-//        }      
-//        
-//        return numDuplicate != 0;       
-//    }
-//}
+        //TODO (IMPORTANT) HIBERNATE TEST THIS METHOD
+    }
+    private boolean isDuplicateId(String id) throws HibernateException{
+  
+         int numDuplicate = 0;//local variable for storing count value returned 
+         Session session = getSession(); //gets the session         
+          
+        
+         try
+        {
+//            numDuplicate = 0;//local variable for storing count value returned 
+//            session = getSession(); //gets the session
+              //using SQL query in Hibernate
+            NativeQuery  nativeQuery = session.createNativeQuery("SELECT Count(*) AS Duplicates FROM hospital WHERE idhospital = '" + id + "'"); 
+            numDuplicate = Integer.parseInt(nativeQuery.uniqueResult().toString()); //gets the result from query 
+        }
+        catch(HibernateException e)
+        {
+            
+            throw new HibernateException("Unable to retreive Data"+e);         
+        }
+         
+        finally
+        {            
+          
+         //   closeSession(); 
+            //session.close();
+        }      
+        
+        return numDuplicate != 0;       
+    }
+}

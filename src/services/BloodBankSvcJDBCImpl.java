@@ -14,18 +14,20 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 /**
  *
  * @author howar
  */
 public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBankService{
-
+    private static Logger logger = Logger.getLogger(DonorSvcJDBCImpl.class);
     @Override
     public void addBloodBank(BloodBank bloodBank) throws SQLException {
-        
+        logger.info("in the addBloodBank(BloodBank bloodBank) method in "+IBloodBankService.class.getName());
         //TODO Review blood, bloodbank and bloodbank has blood relationship
         try{
+            logger.warn("in try, may cause errors");
             //conntecting to database
             this.connectToDatabase();
             
@@ -47,10 +49,12 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
             if(result == true) //if this is true the object is already stored in the database
             {
                 //notify user that the object is already in the database
+                logger.warn("Blood Bank already in the database");
                 System.out.println("Error: " + bloodBank.getName() + " already exists!!");
             }//else no result was found add this object to the database
             else
             {
+                logger.info("Adding BLood Bank");
                 //COMPLETED (2) Add allowMultiQueries=true to database string inorder to support multiple querys;
                 //THOUGHTS (2) could this pose a security threat
 //                String insertSQL = "INSERT INTO `blood_bank` (`idblood_bank`, `name`, `phone` ) VALUES(?,?,?);"
@@ -81,14 +85,17 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
         }
         catch( SQLException ex)
         {
+            logger.error("JDBC insert error "+ex.toString()+" in->"+BloodBankSvcJDBCImpl.class.getName());
             throw new SQLException("Error: " + ex.toString() + "...");
         }finally{ close();}
     }
 
     @Override
     public void upDateBloodBank(BloodBank bloodBank) throws SQLException {
+        logger.info("in the upDateBloodBank(BloodBank bloodBank) method in "+BloodBankSvcJDBCImpl.class.getName());
         try
         {
+            logger.warn("in try, may cause errors");
             //Connecting to database
             this.connectToDatabase();
             
@@ -111,6 +118,7 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
             
             if(!result) //if there was no result
             {
+                logger.warn("NO results found!!");
                 System.out.println("Error: " + bloodBank.getId()+ " doesnt exists!");
             }
             else
@@ -132,14 +140,18 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
                 System.out.println(bloodBank.getName() + " Bank updated!!");
             }
             
-        }catch(SQLException ex){System.out.println("Error: " + bloodBank.getName() + " update error!!\n log: " + ex.toString());}finally{close();}
+        }catch(SQLException ex){
+            logger.error("JDBC update error"+ex.toString()+" in->"+BloodBankSvcJDBCImpl.class.getName());
+            System.out.println("Error: " + bloodBank.getName() + " update error!!\n log: " + ex.toString());}finally{close();}
     }
     //TODO : display list
     @Override
     public List<BloodBank> getAllBloodBank() throws SQLException {
+        logger.info("in the List<BloodBank> getAllBloodBank() method in "+BloodBankSvcJDBCImpl.class.getName());
         List<BloodBank> displayList = new ArrayList();
         try
         {
+            logger.warn("in try, may cause errors");
             this.connectToDatabase();
             
             Statement stmt = this.getConnection().createStatement();
@@ -153,6 +165,7 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
             
             if(result == false)
             {
+                logger.warn("NO results found!!");
                 System.out.println("Empty!!\n");
             }
             else
@@ -174,6 +187,7 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
         }
         catch(SQLException ex)
         {
+            logger.error("JDBC List all error"+ex.toString()+" in->"+BloodBankSvcJDBCImpl.class.getName());
             System.out.println("Error: " + ex.toString() + " could not retreive list");
         }
         finally{
@@ -183,8 +197,10 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
     }
     @Override
     public void deleteBloodBank(BloodBank bloodBank) throws SQLException {
+        logger.info("in the deleteBloodBank(BloodBank bloodBank) method in "+BloodBankSvcJDBCImpl.class.getName());
         try
         {
+            logger.warn("in try, may cause errors");
             //connecting to Database
             this.connectToDatabase();
             
@@ -204,10 +220,12 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
             
             if(!result) // if no result was found the in the database
             {
+                logger.warn("NO results found!!");
                 System.out.println("Error: No result found in the database!!");
             }
             else
             { //Delete 
+                logger.info("Deleteing...");
                 String deleteQuery = "DELETE  FROM `blood_bank` WHERE `idblood_bank` = ?;"
                                     + "DELETE  FROM `blood_bank_address` WHERE `address_id` = ? ;" ;
                 
@@ -221,7 +239,9 @@ public class BloodBankSvcJDBCImpl extends ConnectionManager implements IBloodBan
                 System.out.println(bloodBank.getName() + " Blood Bank deleted!!");
             }
             
-        }catch(SQLException ex){System.out.println("Error: " + ex.toString() + ", could not delete Blood Bank!");}finally{close();}
+        }catch(SQLException ex){
+            logger.error("JDBC Delete error"+ex.toString()+" in->"+BloodBankSvcJDBCImpl.class.getName());
+            System.out.println("Error: " + ex.toString() + ", could not delete Blood Bank!");}finally{close();}
     }
     
 }

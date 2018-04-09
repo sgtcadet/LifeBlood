@@ -1,0 +1,15 @@
+INFO - in the deleteDonor(Donor donor) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - in the addDonor(Donor donor, BloodBank bloodBank) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Adding new Donor and Donation
+INFO - in the addBloodBank(BloodBank bloodBank) method in services.IBloodBankService
+WARN - in try, may cause errors
+INFO - Adding BLood Bank
+ERROR - JDBC insert errorcom.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '1' for key 'PRIMARY' in->services.BloodBankSvcJDBCImpl
+INFO - in the addBloodBank(BloodBank bloodBank) method in services.IBloodBankService
+WARN - in try, may cause errors
+INFO - Adding BLood Bank
+INFO - in the deleteBloodBank(BloodBank bloodBank) method in services.BloodBankSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Deleteing...
