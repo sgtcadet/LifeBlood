@@ -9,6 +9,7 @@ import domain.BloodBank;
 import domain.Donor;
 import java.sql.SQLException;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import services.HibernateBaseConfiguration;
@@ -24,7 +25,7 @@ import org.hibernate.query.NativeQuery;
 public class DonorSvcHibernateImpl extends HibernateBaseConfiguration implements IDonorService{
     
     //class logger
-      // private static Logger logger = Logger.getLogger(DonorSvcHibernateImpl.class);
+       private static Logger logger = Logger.getLogger(DonorSvcHibernateImpl.class);
     /**
      * Method for saving donor record to database
      * @param donor
@@ -34,7 +35,7 @@ public class DonorSvcHibernateImpl extends HibernateBaseConfiguration implements
 
     @Override
     public void addDonor(Donor donor, BloodBank bloodBank) throws Exception {
-        
+       logger.info("in the addDonor(Donor donor, BloodBank bloodBank)  method in "+DonorSvcHibernateImpl.class.getName());
 //        if( isDuplicateId(donor.getTrn())==true)     
 //            //TODO add another entry intro theblood_blank_has_blood table with this user data
 //           throw new Exception("That record already exist");
@@ -47,7 +48,7 @@ public class DonorSvcHibernateImpl extends HibernateBaseConfiguration implements
         
         try
         {
-          // logger.warn("in try, may cause errors");
+           logger.warn("in try, may cause errors");
             
             if( isDuplicateId(donor.getTrn())==true)
             { //if donor exitst, add an entry into the blood_blank_has_blood table
@@ -75,7 +76,7 @@ public class DonorSvcHibernateImpl extends HibernateBaseConfiguration implements
             
            
             if(tranx != null) tranx.rollback(); //roll back transation if error occured
-             //logger.error("Hibernate insert error"+e.toString()+" in->"+StudentSvcHibernateImpl.class.getName());
+             logger.error("Hibernate insert error"+e.toString()+" in->"+DonorSvcHibernateImpl.class.getName());
             throw new HibernateException("Unable to store Donor information "+e.toString());         
         }
          

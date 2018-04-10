@@ -7,12 +7,16 @@ package domain;
 
 //import java.util.Date;
 
+import java.io.Serializable;
 import java.sql.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 
@@ -22,7 +26,7 @@ import javax.persistence.OneToOne;
  */
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-public abstract class Person {
+public abstract class Person implements Serializable {
    
     private String trn;
     private String firstname;
@@ -72,9 +76,9 @@ public abstract class Person {
     @Id
     @Column (name ="trn")
     public String getTrn() {return trn;}
-    @OneToOne
+//    @OneToOne
     public Phone getPhone() {return phone;}
-    @OneToOne
+//    @OneToOne
     public PersonAddress getAddress() {return address;}
     /*
     * SETTERS

@@ -28,6 +28,7 @@ import java.util.logging.Logger;
 import services.HospitalSvcJDBCImpl;
 import services.BloodBankSvcJDBCImpl;
 import services.Hibernate.BloodBankSvcHibernateImpl;
+import services.Hibernate.DonorSvcHibernateImpl;
 import services.Hibernate.HospitalSvcHibernateImpl;
 import services.ReceptionistSvcJDBCImpl;
 
@@ -46,10 +47,10 @@ public class LifeBlood {
         /*****************************
         *     BLOOD BANK INSTANCE
         ****************************/
-        BloodBankAddress bAddress = new BloodBankAddress("5","8 Stennette Street","Port Maria", "St. St.Mary");
-        BloodBank bBank = new BloodBank("KPH7","St Mary Jubilee","994-7845",bAddress); //new BloodBank("KPH2","Kingston Public",bAddress,"998-7845");
+        //BloodBankAddress bAddress = new BloodBankAddress("5","8 Stennette Street","Port Maria", "St. St.Mary");
+        //BloodBank bBank = new BloodBank("KPH7","St Mary Jubilee","994-7845",bAddress); //new BloodBank("KPH2","Kingston Public",bAddress,"998-7845");
 //        /*JDBC Implementation*/
-        BloodBankSvcJDBCImpl b = new BloodBankSvcJDBCImpl();
+        //BloodBankSvcJDBCImpl b = new BloodBankSvcJDBCImpl();
 //        /*Hibernate Implementation*/
 //        BloodBankSvcHibernateImpl b = new BloodBankSvcHibernateImpl();
         //BloodBankMgr bankMrg = new BloodBankMgr();
@@ -71,10 +72,10 @@ public class LifeBlood {
         *RECEPTIONSIT
         */
 //        String[] rAddress = {"Naqti", "Kingston 5", "Naboo"};
-        PersonAddress pAddress = new PersonAddress("Roadside District","Islington P.O.","St.Mary");
+        //PersonAddress pAddress = new PersonAddress("Roadside District","Islington P.O.","St.Mary");
 //        String[] rphone = {"475-879-7845", "147-689-123"}; 
 ////        //TODO fix Date output format
-        Date rdate = new Date(1,1,1);
+        //Date rdate = new Date(1,1,1);
           
 //        Receptionist r = new Receptionist(bBank, "123-456-789", "Howard", "Grant", "howardg@email.com", "Male", rdate, rphone, pAddress);
 ////        ReceptionistSvcJDBCImpl rnist = new ReceptionistSvcJDBCImpl();
@@ -83,20 +84,21 @@ public class LifeBlood {
         /**
          * DONOR
          */
-        Phone phone = new Phone("575-9874","789-4271");
-        Donor donor = new Donor("A-Pos", "147-7852-852", "Darth", "Doe", "email@email.com", "Male", rdate,phone, pAddress);
+        //Phone phone = new Phone("575-9874","789-4271");
+        //Donor donor = new Donor("A-Pos", "147-7852-852", "Darth", "Doe", "email@email.com", "Male", rdate,phone, pAddress);
         /**
              * DONOR MANAGER
              */
-            DonorMgr manDonor = new DonorMgr();
-        try{
+            //DonorMgr manDonor = new DonorMgr();
+            //DonorSvcHibernateImpl manDonor = new DonorSvcHibernateImpl();
+        //try{
             //b.deleteBloodBank(bBank);
             //bankMrg.addBloodBank(bBank);
            //System.out.println("***TRN"+ donor.getTrn()+"}***");
 //            recepMgr.addReceptionist(r, bBank);
               //manDonor.addDonor(donor, bBank);
               
-              manDonor.updateDonor(donor);
+              //manDonor.updateDonor(donor);
 //              List<Donor> donors = new ArrayList();
 //              donors = manDonor.getAllDonor();
 //            for (Donor element : donors) {
@@ -125,15 +127,15 @@ public class LifeBlood {
 //                     System.out.print(elements + " ");
 //                  }
            
-        }
-        catch(SQLException ex)
-        { 
-            System.out.println("Error (PRESENTATION): " + ex.toString() + "...");
-        }
-        catch (Exception e)
-        {
-            Logger.getLogger(LifeBlood.class.getName()).log(Level.SEVERE, null, e);
-        }
+        //}
+        //catch(SQLException ex)
+        //{ 
+        //    System.out.println("Error (PRESENTATION): " + ex.toString() + "...");
+        //}
+        //catch (Exception e)
+        //{
+        //    Logger.getLogger(LifeBlood.class.getName()).log(Level.SEVERE, null, e);
+        //}
 
 
 
