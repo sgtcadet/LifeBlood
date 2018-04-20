@@ -15,33 +15,37 @@ import services.IBloodBankService;
  */
 public class BloodBankMgr extends Manager{
     
+     private IBloodBankService bloodBankSvc;
     /**
      * business method for adding student
+     * @param bloodBankSvc
      * @param bloodBank
      * @throws java.lang.Exception
      *  
      */
     //@throws ServiceLoadException
     //@throws SQLException
-    
+    public void setBloodBankSvc(IBloodBankService bloodBankSvc) {
+        this.bloodBankSvc = bloodBankSvc;
+    }
     public void addBloodBank(BloodBank bloodBank) throws Exception
     {
-        IBloodBankService bloodBankSvc = (IBloodBankService) this.getService(IBloodBankService.NAME);
+        //IBloodBankService bloodBankSvc = (IBloodBankService) this.getService(IBloodBankService.NAME);
         bloodBankSvc.addBloodBank(bloodBank);
     }
     public void upDateBloodBank(BloodBank bloodBank) throws Exception
     {
-        IBloodBankService bloodBankSvc = (IBloodBankService) this.getService(IBloodBankService.NAME);
+        //IBloodBankService bloodBankSvc = (IBloodBankService) this.getService(IBloodBankService.NAME);
         bloodBankSvc.upDateBloodBank(bloodBank);
     }
     public void deleteBloodBank(BloodBank bloodBank) throws Exception
     {
-        IBloodBankService bloodBankSvc = (IBloodBankService) this.getService(IBloodBankService.NAME);
+        //IBloodBankService bloodBankSvc = (IBloodBankService) this.getService(IBloodBankService.NAME);
         bloodBankSvc.deleteBloodBank(bloodBank);
     }
     public List<BloodBank> getAllBloodBank() throws Exception
     {
-        IBloodBankService bloodBankSvc = (IBloodBankService) this.getService(IBloodBankService.NAME);
+        //IBloodBankService bloodBankSvc = (IBloodBankService) this.getService(IBloodBankService.NAME);
         return bloodBankSvc.getAllBloodBank();
     }
 }

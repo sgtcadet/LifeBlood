@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 
 
@@ -24,8 +25,9 @@ import javax.persistence.OneToOne;
  *
  * @author howar
  */
-@Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+//@Entity
+//@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public abstract class Person implements Serializable {
    
     private String trn;
@@ -60,10 +62,19 @@ public abstract class Person implements Serializable {
         this.dob = dob;
         //this.phone = number;
         this.address = address;
-    }    
+    } 
+    public Person(String trn, String firstname, String lastname, String email, String gender, Date dob) {
+        this.trn = trn;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.gender = gender;
+        this.dob = dob;
+    }
     /*
     * GETTERS
     */
+    @Column (name = "dob")
     public Date getDob() {return dob;}
     @Column (name = "email")
     public String getEmail() {return email;}
@@ -76,6 +87,9 @@ public abstract class Person implements Serializable {
     @Id
     @Column (name ="trn")
     public String getTrn() {return trn;}
+    
+    
+    
 //    @OneToOne
     public Phone getPhone() {return phone;}
 //    @OneToOne

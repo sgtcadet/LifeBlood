@@ -8,6 +8,8 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Donor.class)
 public abstract class Donor_ extends domain.Person_ {
 
+	public static volatile SingularAttribute<Donor, PersonAddress> address;
+	public static volatile SingularAttribute<Donor, Phone> phone;
 	public static volatile SingularAttribute<Donor, String> bloodType;
 
 }

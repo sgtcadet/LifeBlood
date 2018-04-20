@@ -24,29 +24,41 @@ import org.hibernate.annotations.Parameter;
  *
  * @author howar
  */
-//@Entity
-//@Table(name ="donor_address")
+@Entity
+@Table(name ="donor_address")
 public class PersonAddress extends Address implements Serializable{
-    private String address_id;
+    
+//    private String address_id;
+    private int id;
     
     private Donor donor;
     //private Person person;
     public PersonAddress() {
     }
-    public PersonAddress(String id, String street, String addressLine1, String addressLine2) {
+//    public PersonAddress(String id, String street, String addressLine1, String addressLine2) {
+//        super(street, addressLine1, addressLine2);
+//        this.address_id = id;
+//    }
+    public PersonAddress(int id, String street, String addressLine1, String addressLine2) {
         super(street, addressLine1, addressLine2);
-        this.address_id = id;
+        this.id = id;
     }
     public PersonAddress(String street, String addressLine1, String addressLine2) {
         super(street, addressLine1, addressLine2);
     }
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "trn")
     public Donor getDonor(){return donor;}
-    public String getAddressId() {
-        return address_id;
+    public void setDonor(Donor donor){ this.donor = donor;}
+    @Id
+    @GeneratedValue
+    public int getAddressId() {
+//        return address_id;
+        return id;
     }
-    public void setAddressId(String address_id) {
-        this.address_id = address_id;
+    public void setAddressId(int address_id) {
+//        this.address_id = address_id;
+            this.id = address_id;
     }
     
 }

@@ -27,10 +27,6 @@ import javax.persistence.PrimaryKeyJoinColumn;
 //@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @MappedSuperclass
 public abstract class Address {
-//    @Id
-//    @GeneratedValue(strategy=GenerationType.AUTO)
-//    private String id;
-    
     private String street;
     private String addressLine1;
     private String addressLine2;
@@ -50,12 +46,11 @@ public abstract class Address {
     public String getAddressLine1() {return addressLine1;}
     @Column (name = "address_line_2")
     public String getAddressLine2() {return addressLine2;}
-//    public String getId(){return id;}
   
     public void setStreet(String street) {this.street = street;}
     public void setAddressLine1(String addressLine1) {this.addressLine1 = addressLine1;}
     public void setAddressLine2(String addressLine2) {this.addressLine2 = addressLine2;}
-//    public void setId(String id){this.id = id;}
+
 
     @Override
     public String toString() {

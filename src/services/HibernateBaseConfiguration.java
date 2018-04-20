@@ -49,11 +49,11 @@ public abstract class HibernateBaseConfiguration {
                 CONFIG.addAnnotatedClass(BloodBankAddress.class);
                 //CONFIG.addAnnotatedClass(Hospital.class);
                 //CONFIG.addAnnotatedClass(HospitalAddress.class);
-                CONFIG.addAnnotatedClass(Donor.class);
+                //CONFIG.addAnnotatedClass(Donor.class);
 //                CONFIG.addAnnotatedClass(Receptionist.class);
                 //CONFIG.addAnnotatedClass(Address.class); 
-                CONFIG.addAnnotatedClass(PersonAddress.class); 
-                CONFIG.addAnnotatedClass(Phone.class); 
+                //CONFIG.addAnnotatedClass(PersonAddress.class); 
+                //CONFIG.addAnnotatedClass(Phone.class); 
                 
                 
                 //build the sessionFactory

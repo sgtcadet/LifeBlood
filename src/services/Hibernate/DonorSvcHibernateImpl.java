@@ -54,21 +54,19 @@ public class DonorSvcHibernateImpl extends HibernateBaseConfiguration implements
             { //if donor exitst, add an entry into the blood_blank_has_blood table
                 tranx = session.beginTransaction();
                 
-                
+                logger.info("Attempting to save donor that already exist");
                 session.save(donor);
-                
                 tranx.commit();
+                logger.info("donor save");
             }
             else{     
-            
+             logger.info("Attempting to save donor");
              tranx = session.beginTransaction();
              session.save(donor);
-             
              //THOUGHTS : How will hibernate add donors to the bloodbank_has_blood table?
              // As this method is right now, it only adds a donor to the donor table :$ 
-             
-             
              tranx.commit();
+             logger.info("donor save");
             }
         }
         catch(HibernateException e)
@@ -79,7 +77,6 @@ public class DonorSvcHibernateImpl extends HibernateBaseConfiguration implements
              logger.error("Hibernate insert error"+e.toString()+" in->"+DonorSvcHibernateImpl.class.getName());
             throw new HibernateException("Unable to store Donor information "+e.toString());         
         }
-         
         finally
         {           
            session.close();

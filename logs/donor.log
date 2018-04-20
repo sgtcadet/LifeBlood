@@ -92,3 +92,121 @@ INFO - Deleteing...
 INFO - in the deleteBloodBank(BloodBank bloodBank) method in services.BloodBankSvcJDBCImpl
 WARN - in try, may cause errors
 INFO - Deleteing...
+INFO - in the addBloodBank(BloodBank bloodBank) method in services.IBloodBankService
+WARN - in try, may cause errors
+INFO - Adding BLood Bank
+INFO - in the addDonor(Donor donor, BloodBank bloodBank) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Adding new Donor and Donation
+ERROR - JDBC insert errorjava.sql.SQLException: Field 'addressId' doesn't have a default value in->services.DonorSvcJDBCImpl
+INFO - in the updateDonor(Donor donor) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - in the List<Donor> getAllDonor() method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - in the deleteDonor(Donor donor) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Deleteing...
+INFO - in the deleteBloodBank(BloodBank bloodBank) method in services.BloodBankSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Deleteing...
+INFO - in the addBloodBank(BloodBank bloodBank) method in services.IBloodBankService
+WARN - in try, may cause errors
+INFO - Adding BLood Bank
+INFO - in the addDonor(Donor donor, BloodBank bloodBank) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Adding new Donor and Donation
+INFO - in the updateDonor(Donor donor) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - in the List<Donor> getAllDonor() method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - in the deleteDonor(Donor donor) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Deleteing...
+INFO - in the deleteBloodBank(BloodBank bloodBank) method in services.BloodBankSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Deleteing...
+INFO - in the addBloodBank(BloodBank bloodBank) method in services.IBloodBankService
+WARN - in try, may cause errors
+INFO - Adding BLood Bank
+INFO - in the addDonor(Donor donor, BloodBank bloodBank) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Adding new Donor and Donation
+INFO - in the updateDonor(Donor donor) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - in the List<Donor> getAllDonor() method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - in the deleteDonor(Donor donor) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Deleteing...
+INFO - in the deleteBloodBank(BloodBank bloodBank) method in services.BloodBankSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Deleteing...
+INFO - in the addBloodBank(BloodBank bloodBank) method in services.IBloodBankService
+WARN - in try, may cause errors
+INFO - Adding BLood Bank
+INFO - in the addDonor(Donor donor, BloodBank bloodBank) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Adding new Donor and Donation
+INFO - in the updateDonor(Donor donor) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - in the List<Donor> getAllDonor() method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - in the deleteDonor(Donor donor) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Deleteing...
+INFO - in the deleteBloodBank(BloodBank bloodBank) method in services.BloodBankSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Deleteing...
+INFO - in the addBloodBank(BloodBank bloodBank) method in services.IBloodBankService
+WARN - in try, may cause errors
+INFO - Adding BLood Bank
+INFO - in the addDonor(Donor donor, BloodBank bloodBank) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Adding new Donor and Donation
+INFO - in the updateDonor(Donor donor) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - in the List<Donor> getAllDonor() method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - in the deleteDonor(Donor donor) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Deleteing...
+INFO - in the deleteBloodBank(BloodBank bloodBank) method in services.BloodBankSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Deleteing...
+INFO - in the addDonor(Donor donor, BloodBank bloodBank)  method in services.Hibernate.DonorSvcHibernateImpl
+WARN - in try, may cause errors
+INFO - in the addDonor(Donor donor, BloodBank bloodBank)  method in services.Hibernate.DonorSvcHibernateImpl
+WARN - in try, may cause errors
+INFO - Attempting to save donor
+INFO - in the addDonor(Donor donor, BloodBank bloodBank)  method in services.Hibernate.DonorSvcHibernateImpl
+WARN - in try, may cause errors
+INFO - Attempting to save donor
+INFO - donor save
+INFO - in the addDonor(Donor donor, BloodBank bloodBank)  method in services.Hibernate.DonorSvcHibernateImpl
+INFO - in the addDonor(Donor donor, BloodBank bloodBank)  method in services.Hibernate.DonorSvcHibernateImpl
+INFO - in the addDonor(Donor donor, BloodBank bloodBank)  method in services.Hibernate.DonorSvcHibernateImpl
+INFO - in the addDonor(Donor donor, BloodBank bloodBank)  method in services.Hibernate.DonorSvcHibernateImpl
+INFO - in the addDonor(Donor donor, BloodBank bloodBank)  method in services.Hibernate.DonorSvcHibernateImpl
+INFO - in the addDonor(Donor donor, BloodBank bloodBank)  method in services.Hibernate.DonorSvcHibernateImpl
+INFO - in the addDonor(Donor donor, BloodBank bloodBank)  method in services.Hibernate.DonorSvcHibernateImpl
+INFO - in the addDonor(Donor donor, BloodBank bloodBank)  method in services.Hibernate.DonorSvcHibernateImpl
+WARN - in try, may cause errors
+INFO - Attempting to save donor
+INFO - donor save
+INFO - in the addBloodBank(BloodBank bloodBank) method in services.IBloodBankService
+WARN - in try, may cause errors
+INFO - Adding BLood Bank
+INFO - in the addDonor(Donor donor, BloodBank bloodBank) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Adding new Donor and Donation
+ERROR - JDBC insert errorjava.sql.SQLException: Field 'addressId' doesn't have a default value in->services.DonorSvcJDBCImpl
+INFO - in the updateDonor(Donor donor) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - in the List<Donor> getAllDonor() method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - in the deleteDonor(Donor donor) method in services.DonorSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Deleteing...
+INFO - in the deleteBloodBank(BloodBank bloodBank) method in services.BloodBankSvcJDBCImpl
+WARN - in try, may cause errors
+INFO - Deleteing...
