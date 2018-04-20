@@ -5,6 +5,8 @@
  */
 package presentation;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author howar
@@ -30,10 +32,11 @@ public class LifeBloodMainUI extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jDesktopPaneMainPane = new javax.swing.JDesktopPane();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenuFile = new javax.swing.JMenu();
         jMenuEdit = new javax.swing.JMenu();
+        jMenuItemAddBloodBank = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -44,21 +47,30 @@ public class LifeBloodMainUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Life Blood Donation System");
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jDesktopPaneMainPaneLayout = new javax.swing.GroupLayout(jDesktopPaneMainPane);
+        jDesktopPaneMainPane.setLayout(jDesktopPaneMainPaneLayout);
+        jDesktopPaneMainPaneLayout.setHorizontalGroup(
+            jDesktopPaneMainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 376, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jDesktopPaneMainPaneLayout.setVerticalGroup(
+            jDesktopPaneMainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 255, Short.MAX_VALUE)
         );
 
         jMenuFile.setText("File");
         jMenuBar2.add(jMenuFile);
 
-        jMenuEdit.setText("Edit");
+        jMenuEdit.setText("Blood Bank");
+
+        jMenuItemAddBloodBank.setText("Add Blood Bank");
+        jMenuItemAddBloodBank.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAddBloodBankActionPerformed(evt);
+            }
+        });
+        jMenuEdit.add(jMenuItemAddBloodBank);
+
         jMenuBar2.add(jMenuEdit);
 
         setJMenuBar(jMenuBar2);
@@ -69,19 +81,26 @@ public class LifeBloodMainUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jDesktopPane1)
+                .addComponent(jDesktopPaneMainPane)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jDesktopPane1)
+                .addComponent(jDesktopPaneMainPane)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItemAddBloodBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAddBloodBankActionPerformed
+        // TODO add your handling code here:
+        JIFrameAddBloodBank addBloodBankUI = new JIFrameAddBloodBank();
+         addBloodBankUI.setVisible(true);
+        jDesktopPaneMainPane.add(addBloodBankUI, BorderLayout.CENTER);
+    }//GEN-LAST:event_jMenuItemAddBloodBankActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,12 +138,13 @@ public class LifeBloodMainUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDesktopPaneMainPane;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenu jMenuEdit;
     private javax.swing.JMenu jMenuFile;
+    private javax.swing.JMenuItem jMenuItemAddBloodBank;
     // End of variables declaration//GEN-END:variables
 }
