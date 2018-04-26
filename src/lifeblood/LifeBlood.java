@@ -56,7 +56,7 @@ public class LifeBlood {
 //        Donor donor = new Donor("A-pos","116-852-894","Howard","Grant","hgrant@yahoo.com","Male",donorDate);
 //        donor.setAddress(donorAddress);
 //        donor.setPhone(donorPhone);
-        BloodBankMgr bloodBankMgr = new BloodBankMgr();
+    BloodBankMgr bloodBankMgr = new BloodBankMgr();
     BloodBankAddress address = new BloodBankAddress();
     BloodBank bloodBank = new BloodBank();
     //
@@ -69,12 +69,23 @@ public class LifeBlood {
     bloodBank.setNumber("1234567");
     bloodBank.setBloodBankAddress(address);
 //    bloodBankMgr.addBloodBank(bloodBank);
+    List<BloodBank> bBankList = new ArrayList();
         try{
 //            DonorMgr donorMgr = new DonorMgr();
 //            donorMgr.addDonor(donor, bloodBank);
               ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"config.xml"});
-            BloodBankMgr studMgr = (BloodBankMgr)context.getBean("bloodBankMgr"); 
-            studMgr.addBloodBank(bloodBank); 
+            BloodBankMgr bBankMgr = (BloodBankMgr)context.getBean("bloodBankMgr"); 
+            //bBankMgr.addBloodBank(bloodBank);
+            
+            bBankList = bBankMgr.getAllBloodBank();
+            Iterator<BloodBank> stdIter = bBankList.iterator();
+            int counter = 0;
+            while(stdIter.hasNext())
+            { 
+                System.out.println(stdIter.next().toString());
+                counter++;
+            }
+            System.out.println("Counter value {" + counter + "}");
         }catch(Exception e){ System.out.println("Presentation Error: " + e.toString());}
 //    
     /**

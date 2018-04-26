@@ -66,7 +66,7 @@ public class BloodBankSvcHibernateImpl  extends HibernateBaseConfiguration imple
     @Override
     public void upDateBloodBank(BloodBank bloodBank) throws SQLException {
 //        BasicConfigurator.configure();
-         //logger.info("upDateBloodBank(BloodBank bloodBank) ");
+         logger.info("in the upDateBloodBank(BloodBank bloodBank) methodin "+BloodBankSvcHibernateImpl.class.getName());
 //        if( isDuplicateId(student.getIdNumber())==true)             
 //            throw new Exception("That record already exist");       
         Session session = getSession(); //gets the session
@@ -98,7 +98,7 @@ public class BloodBankSvcHibernateImpl  extends HibernateBaseConfiguration imple
     @Override
     public List<BloodBank> getAllBloodBank() throws SQLException {
 //        BasicConfigurator.configure();
-        logger.info("getAllBloodBank() ");
+        logger.info("in the getAllBloodBank() method in "+BloodBankSvcHibernateImpl.class.getName());
          List<BloodBank> bloobBankList = new ArrayList<>();
         
          Session  session = getSession(); //gets the session            

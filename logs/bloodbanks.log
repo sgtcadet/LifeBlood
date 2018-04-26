@@ -1,431 +1,135 @@
-DEBUG - Visiting attribute path : addressLine1
-DEBUG - Visiting attribute path : addressLine2
-DEBUG - Visiting attribute path : street
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBankAddress)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:0>, path=domain.BloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBankAddress)
-          - SQL table alias mapping - bloodbanka0_
-          - alias suffix - 0_
-          - suffixed key columns - {address_1_1_0_}
-
-DEBUG - Static select for entity domain.BloodBankAddress [NONE]: select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4ecedcf9]
-DEBUG - Visiting attribute path : addressLine1
-DEBUG - Visiting attribute path : addressLine2
-DEBUG - Visiting attribute path : street
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBankAddress)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:0>, path=domain.BloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBankAddress)
-          - SQL table alias mapping - bloodbanka0_
-          - alias suffix - 0_
-          - suffixed key columns - {address_1_1_0_}
-
-DEBUG - Static select for entity domain.BloodBankAddress [READ]: select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@c22b48f]
-DEBUG - Visiting attribute path : addressLine1
-DEBUG - Visiting attribute path : addressLine2
-DEBUG - Visiting attribute path : street
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBankAddress)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:0>, path=domain.BloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBankAddress)
-          - SQL table alias mapping - bloodbanka0_
-          - alias suffix - 0_
-          - suffixed key columns - {address_1_1_0_}
-
-DEBUG - Static select for entity domain.BloodBankAddress [UPGRADE]: select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=? for update
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2680f9e4]
-DEBUG - Visiting attribute path : addressLine1
-DEBUG - Visiting attribute path : addressLine2
-DEBUG - Visiting attribute path : street
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBankAddress)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:0>, path=domain.BloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBankAddress)
-          - SQL table alias mapping - bloodbanka0_
-          - alias suffix - 0_
-          - suffixed key columns - {address_1_1_0_}
-
-DEBUG - Static select for entity domain.BloodBankAddress [UPGRADE_NOWAIT]: select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=? for update
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2cd43507]
-DEBUG - Visiting attribute path : addressLine1
-DEBUG - Visiting attribute path : addressLine2
-DEBUG - Visiting attribute path : street
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBankAddress)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:0>, path=domain.BloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBankAddress)
-          - SQL table alias mapping - bloodbanka0_
-          - alias suffix - 0_
-          - suffixed key columns - {address_1_1_0_}
-
-DEBUG - Static select for entity domain.BloodBankAddress [UPGRADE_SKIPLOCKED]: select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=? for update
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@1d058169]
-DEBUG - Visiting attribute path : addressLine1
-DEBUG - Visiting attribute path : addressLine2
-DEBUG - Visiting attribute path : street
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBankAddress)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:0>, path=domain.BloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBankAddress)
-          - SQL table alias mapping - bloodbanka0_
-          - alias suffix - 0_
-          - suffixed key columns - {address_1_1_0_}
-
-DEBUG - Static select for entity domain.BloodBankAddress [FORCE]: select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=? for update
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@7e9ee852]
-DEBUG - Visiting attribute path : addressLine1
-DEBUG - Visiting attribute path : addressLine2
-DEBUG - Visiting attribute path : street
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBankAddress)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:0>, path=domain.BloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBankAddress)
-          - SQL table alias mapping - bloodbanka0_
-          - alias suffix - 0_
-          - suffixed key columns - {address_1_1_0_}
-
-DEBUG - Static select for entity domain.BloodBankAddress [PESSIMISTIC_READ]: select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=? lock in share mode
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2ba89672]
-DEBUG - Visiting attribute path : addressLine1
-DEBUG - Visiting attribute path : addressLine2
-DEBUG - Visiting attribute path : street
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBankAddress)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:0>, path=domain.BloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBankAddress)
-          - SQL table alias mapping - bloodbanka0_
-          - alias suffix - 0_
-          - suffixed key columns - {address_1_1_0_}
-
-DEBUG - Static select for entity domain.BloodBankAddress [PESSIMISTIC_WRITE]: select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=? for update
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2da4da29]
-DEBUG - Visiting attribute path : addressLine1
-DEBUG - Visiting attribute path : addressLine2
-DEBUG - Visiting attribute path : street
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBankAddress)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:0>, path=domain.BloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBankAddress)
-          - SQL table alias mapping - bloodbanka0_
-          - alias suffix - 0_
-          - suffixed key columns - {address_1_1_0_}
-
-DEBUG - Static select for entity domain.BloodBankAddress [PESSIMISTIC_FORCE_INCREMENT]: select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=? for update
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@62f3020b]
-DEBUG - Visiting attribute path : addressLine1
-DEBUG - Visiting attribute path : addressLine2
-DEBUG - Visiting attribute path : street
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBankAddress)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:0>, path=domain.BloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBankAddress)
-          - SQL table alias mapping - bloodbanka0_
-          - alias suffix - 0_
-          - suffixed key columns - {address_1_1_0_}
-
-DEBUG - Static select for entity domain.BloodBankAddress [OPTIMISTIC]: select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4687474e]
-DEBUG - Visiting attribute path : addressLine1
-DEBUG - Visiting attribute path : addressLine2
-DEBUG - Visiting attribute path : street
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBankAddress)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:0>, path=domain.BloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBankAddress)
-          - SQL table alias mapping - bloodbanka0_
-          - alias suffix - 0_
-          - suffixed key columns - {address_1_1_0_}
-
-DEBUG - Static select for entity domain.BloodBankAddress [OPTIMISTIC_FORCE_INCREMENT]: select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
-DEBUG - Static select for action ACTION_MERGE on entity domain.BloodBankAddress: select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
-DEBUG - Static select for action ACTION_REFRESH on entity domain.BloodBankAddress: select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
-DEBUG - Static SQL for entity: domain.BloodBank
-DEBUG -  Version select: select idblood_bank from blood_bank where idblood_bank =?
-DEBUG -  Snapshot select: select bloodbank_.idblood_bank, bloodbank_.address_id as address_4_0_, bloodbank_.name as name2_0_, bloodbank_.phone as phone3_0_ from blood_bank bloodbank_ where bloodbank_.idblood_bank=?
-DEBUG -  Insert 0: insert into blood_bank (address_id, name, phone, idblood_bank) values (?, ?, ?, ?)
-DEBUG -  Update 0: update blood_bank set address_id=?, name=?, phone=? where idblood_bank=?
-DEBUG -  Delete 0: delete from blood_bank where idblood_bank=?
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@7a5cd73a]
-DEBUG - Visiting attribute path : bloodBankAddress
-DEBUG - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@473f6f39]
-DEBUG - Visiting attribute path : bloodBankAddress.addressLine1
-DEBUG - Visiting attribute path : bloodBankAddress.addressLine2
-DEBUG - Visiting attribute path : bloodBankAddress.street
-DEBUG - Visiting attribute path : name
-DEBUG - Visiting attribute path : number
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBank)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBank, querySpaceUid=<gen:0>, path=domain.BloodBank)
-          - EntityAttributeFetchImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:1>, path=domain.BloodBank.bloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBank)
-          - SQL table alias mapping - bloodbank0_
-          - alias suffix - 0_
-          - suffixed key columns - {idblood_1_0_0_}
-          - JOIN (JoinDefinedByMetadata(bloodBankAddress)) : <gen:0> -> <gen:1>
-             - EntityQuerySpaceImpl(uid=<gen:1>, entity=domain.BloodBankAddress)
-                - SQL table alias mapping - bloodbanka1_
-                - alias suffix - 1_
-                - suffixed key columns - {address_1_1_1_}
-
-DEBUG - Static select for entity domain.BloodBank [NONE]: select bloodbank0_.idblood_bank as idblood_1_0_0_, bloodbank0_.address_id as address_4_0_0_, bloodbank0_.name as name2_0_0_, bloodbank0_.phone as phone3_0_0_, bloodbanka1_.address_id as address_1_1_1_, bloodbanka1_.address_line_1 as address_2_1_1_, bloodbanka1_.address_line_2 as address_3_1_1_, bloodbanka1_.street as street4_1_1_ from blood_bank bloodbank0_ left outer join blood_bank_address bloodbanka1_ on bloodbank0_.address_id=bloodbanka1_.address_id where bloodbank0_.idblood_bank=?
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@19cc5596]
-DEBUG - Visiting attribute path : bloodBankAddress
-DEBUG - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4711098e]
-DEBUG - Visiting attribute path : bloodBankAddress.addressLine1
-DEBUG - Visiting attribute path : bloodBankAddress.addressLine2
-DEBUG - Visiting attribute path : bloodBankAddress.street
-DEBUG - Visiting attribute path : name
-DEBUG - Visiting attribute path : number
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBank)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBank, querySpaceUid=<gen:0>, path=domain.BloodBank)
-          - EntityAttributeFetchImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:1>, path=domain.BloodBank.bloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBank)
-          - SQL table alias mapping - bloodbank0_
-          - alias suffix - 0_
-          - suffixed key columns - {idblood_1_0_0_}
-          - JOIN (JoinDefinedByMetadata(bloodBankAddress)) : <gen:0> -> <gen:1>
-             - EntityQuerySpaceImpl(uid=<gen:1>, entity=domain.BloodBankAddress)
-                - SQL table alias mapping - bloodbanka1_
-                - alias suffix - 1_
-                - suffixed key columns - {address_1_1_1_}
-
-DEBUG - Static select for entity domain.BloodBank [READ]: select bloodbank0_.idblood_bank as idblood_1_0_0_, bloodbank0_.address_id as address_4_0_0_, bloodbank0_.name as name2_0_0_, bloodbank0_.phone as phone3_0_0_, bloodbanka1_.address_id as address_1_1_1_, bloodbanka1_.address_line_1 as address_2_1_1_, bloodbanka1_.address_line_2 as address_3_1_1_, bloodbanka1_.street as street4_1_1_ from blood_bank bloodbank0_ left outer join blood_bank_address bloodbanka1_ on bloodbank0_.address_id=bloodbanka1_.address_id where bloodbank0_.idblood_bank=?
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2cd5c27e]
-DEBUG - Visiting attribute path : bloodBankAddress
-DEBUG - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2e6c60b9]
-DEBUG - Visiting attribute path : name
-DEBUG - Visiting attribute path : number
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBank)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBank, querySpaceUid=<gen:0>, path=domain.BloodBank)
-          - EntityAttributeFetchImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:1>, path=domain.BloodBank.bloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBank)
-          - SQL table alias mapping - bloodbank0_
-          - alias suffix - 0_
-          - suffixed key columns - {idblood_1_0_0_}
-
-DEBUG - Static select for entity domain.BloodBank [UPGRADE]: select bloodbank0_.idblood_bank as idblood_1_0_0_, bloodbank0_.address_id as address_4_0_0_, bloodbank0_.name as name2_0_0_, bloodbank0_.phone as phone3_0_0_ from blood_bank bloodbank0_ where bloodbank0_.idblood_bank=? for update
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@b6839fd]
-DEBUG - Visiting attribute path : bloodBankAddress
-DEBUG - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@1a82b058]
-DEBUG - Visiting attribute path : name
-DEBUG - Visiting attribute path : number
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBank)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBank, querySpaceUid=<gen:0>, path=domain.BloodBank)
-          - EntityAttributeFetchImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:1>, path=domain.BloodBank.bloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBank)
-          - SQL table alias mapping - bloodbank0_
-          - alias suffix - 0_
-          - suffixed key columns - {idblood_1_0_0_}
-
-DEBUG - Static select for entity domain.BloodBank [UPGRADE_NOWAIT]: select bloodbank0_.idblood_bank as idblood_1_0_0_, bloodbank0_.address_id as address_4_0_0_, bloodbank0_.name as name2_0_0_, bloodbank0_.phone as phone3_0_0_ from blood_bank bloodbank0_ where bloodbank0_.idblood_bank=? for update
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@57267219]
-DEBUG - Visiting attribute path : bloodBankAddress
-DEBUG - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@72ee6b98]
-DEBUG - Visiting attribute path : name
-DEBUG - Visiting attribute path : number
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBank)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBank, querySpaceUid=<gen:0>, path=domain.BloodBank)
-          - EntityAttributeFetchImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:1>, path=domain.BloodBank.bloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBank)
-          - SQL table alias mapping - bloodbank0_
-          - alias suffix - 0_
-          - suffixed key columns - {idblood_1_0_0_}
-
-DEBUG - Static select for entity domain.BloodBank [UPGRADE_SKIPLOCKED]: select bloodbank0_.idblood_bank as idblood_1_0_0_, bloodbank0_.address_id as address_4_0_0_, bloodbank0_.name as name2_0_0_, bloodbank0_.phone as phone3_0_0_ from blood_bank bloodbank0_ where bloodbank0_.idblood_bank=? for update
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@19b316f2]
-DEBUG - Visiting attribute path : bloodBankAddress
-DEBUG - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5d782c39]
-DEBUG - Visiting attribute path : name
-DEBUG - Visiting attribute path : number
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBank)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBank, querySpaceUid=<gen:0>, path=domain.BloodBank)
-          - EntityAttributeFetchImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:1>, path=domain.BloodBank.bloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBank)
-          - SQL table alias mapping - bloodbank0_
-          - alias suffix - 0_
-          - suffixed key columns - {idblood_1_0_0_}
-
-DEBUG - Static select for entity domain.BloodBank [FORCE]: select bloodbank0_.idblood_bank as idblood_1_0_0_, bloodbank0_.address_id as address_4_0_0_, bloodbank0_.name as name2_0_0_, bloodbank0_.phone as phone3_0_0_ from blood_bank bloodbank0_ where bloodbank0_.idblood_bank=? for update
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@28439416]
-DEBUG - Visiting attribute path : bloodBankAddress
-DEBUG - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2c7c9ff7]
-DEBUG - Visiting attribute path : name
-DEBUG - Visiting attribute path : number
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBank)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBank, querySpaceUid=<gen:0>, path=domain.BloodBank)
-          - EntityAttributeFetchImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:1>, path=domain.BloodBank.bloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBank)
-          - SQL table alias mapping - bloodbank0_
-          - alias suffix - 0_
-          - suffixed key columns - {idblood_1_0_0_}
-
-DEBUG - Static select for entity domain.BloodBank [PESSIMISTIC_READ]: select bloodbank0_.idblood_bank as idblood_1_0_0_, bloodbank0_.address_id as address_4_0_0_, bloodbank0_.name as name2_0_0_, bloodbank0_.phone as phone3_0_0_ from blood_bank bloodbank0_ where bloodbank0_.idblood_bank=? lock in share mode
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@307977a5]
-DEBUG - Visiting attribute path : bloodBankAddress
-DEBUG - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@1d6aa824]
-DEBUG - Visiting attribute path : name
-DEBUG - Visiting attribute path : number
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBank)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBank, querySpaceUid=<gen:0>, path=domain.BloodBank)
-          - EntityAttributeFetchImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:1>, path=domain.BloodBank.bloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBank)
-          - SQL table alias mapping - bloodbank0_
-          - alias suffix - 0_
-          - suffixed key columns - {idblood_1_0_0_}
-
-DEBUG - Static select for entity domain.BloodBank [PESSIMISTIC_WRITE]: select bloodbank0_.idblood_bank as idblood_1_0_0_, bloodbank0_.address_id as address_4_0_0_, bloodbank0_.name as name2_0_0_, bloodbank0_.phone as phone3_0_0_ from blood_bank bloodbank0_ where bloodbank0_.idblood_bank=? for update
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@55a10f59]
-DEBUG - Visiting attribute path : bloodBankAddress
-DEBUG - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5f75672a]
-DEBUG - Visiting attribute path : name
-DEBUG - Visiting attribute path : number
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBank)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBank, querySpaceUid=<gen:0>, path=domain.BloodBank)
-          - EntityAttributeFetchImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:1>, path=domain.BloodBank.bloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBank)
-          - SQL table alias mapping - bloodbank0_
-          - alias suffix - 0_
-          - suffixed key columns - {idblood_1_0_0_}
-
-DEBUG - Static select for entity domain.BloodBank [PESSIMISTIC_FORCE_INCREMENT]: select bloodbank0_.idblood_bank as idblood_1_0_0_, bloodbank0_.address_id as address_4_0_0_, bloodbank0_.name as name2_0_0_, bloodbank0_.phone as phone3_0_0_ from blood_bank bloodbank0_ where bloodbank0_.idblood_bank=? for update
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@1716df68]
-DEBUG - Visiting attribute path : bloodBankAddress
-DEBUG - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@10a40077]
-DEBUG - Visiting attribute path : name
-DEBUG - Visiting attribute path : number
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBank)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBank, querySpaceUid=<gen:0>, path=domain.BloodBank)
-          - EntityAttributeFetchImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:1>, path=domain.BloodBank.bloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBank)
-          - SQL table alias mapping - bloodbank0_
-          - alias suffix - 0_
-          - suffixed key columns - {idblood_1_0_0_}
-
-DEBUG - Static select for entity domain.BloodBank [OPTIMISTIC]: select bloodbank0_.idblood_bank as idblood_1_0_0_, bloodbank0_.address_id as address_4_0_0_, bloodbank0_.name as name2_0_0_, bloodbank0_.phone as phone3_0_0_ from blood_bank bloodbank0_ where bloodbank0_.idblood_bank=?
-DEBUG - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@649c797e]
-DEBUG - Visiting attribute path : bloodBankAddress
-DEBUG - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@90466d5]
-DEBUG - Visiting attribute path : name
-DEBUG - Visiting attribute path : number
-DEBUG - Building LoadPlan...
-DEBUG - processing queryspace <gen:0>
-DEBUG - LoadPlan(entity=domain.BloodBank)
-    - Returns
-       - EntityReturnImpl(entity=domain.BloodBank, querySpaceUid=<gen:0>, path=domain.BloodBank)
-          - EntityAttributeFetchImpl(entity=domain.BloodBankAddress, querySpaceUid=<gen:1>, path=domain.BloodBank.bloodBankAddress)
-    - QuerySpaces
-       - EntityQuerySpaceImpl(uid=<gen:0>, entity=domain.BloodBank)
-          - SQL table alias mapping - bloodbank0_
-          - alias suffix - 0_
-          - suffixed key columns - {idblood_1_0_0_}
-
-DEBUG - Static select for entity domain.BloodBank [OPTIMISTIC_FORCE_INCREMENT]: select bloodbank0_.idblood_bank as idblood_1_0_0_, bloodbank0_.address_id as address_4_0_0_, bloodbank0_.name as name2_0_0_, bloodbank0_.phone as phone3_0_0_ from blood_bank bloodbank0_ where bloodbank0_.idblood_bank=?
-DEBUG - Static select for action ACTION_MERGE on entity domain.BloodBank: select bloodbank0_.idblood_bank as idblood_1_0_1_, bloodbank0_.address_id as address_4_0_1_, bloodbank0_.name as name2_0_1_, bloodbank0_.phone as phone3_0_1_, bloodbanka1_.address_id as address_1_1_0_, bloodbanka1_.address_line_1 as address_2_1_0_, bloodbanka1_.address_line_2 as address_3_1_0_, bloodbanka1_.street as street4_1_0_ from blood_bank bloodbank0_ left outer join blood_bank_address bloodbanka1_ on bloodbank0_.address_id=bloodbanka1_.address_id where bloodbank0_.idblood_bank=?
-DEBUG - Static select for action ACTION_REFRESH on entity domain.BloodBank: select bloodbank0_.idblood_bank as idblood_1_0_1_, bloodbank0_.address_id as address_4_0_1_, bloodbank0_.name as name2_0_1_, bloodbank0_.phone as phone3_0_1_, bloodbanka1_.address_id as address_1_1_0_, bloodbanka1_.address_line_1 as address_2_1_0_, bloodbanka1_.address_line_2 as address_3_1_0_, bloodbanka1_.street as street4_1_0_ from blood_bank bloodbank0_ left outer join blood_bank_address bloodbanka1_ on bloodbank0_.address_id=bloodbanka1_.address_id where bloodbank0_.idblood_bank=?
-INFO - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1d29f0d1] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-DEBUG - No alter strings for table : blood_bank
-DEBUG - No alter strings for table : blood_bank_address
-DEBUG - Checking 0 named HQL queries
-DEBUG - Checking 0 named SQL queries
-DEBUG - Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@3ba49577
-DEBUG - Registering SessionFactory: dd63d393-27b1-4105-8c3a-1188612a492b (<unnamed>)
-DEBUG - Not binding SessionFactory to JNDI, no JNDI name configured
-DEBUG - Statistics initialized [enabled=false]
-DEBUG - SELECT Count(*) AS Duplicates FROM blood_bank WHERE idblood_bank = 'KPH543'
-DEBUG - Result set row: 0
-DEBUG - Result row: 
-DEBUG - Initiating JDBC connection release from afterTransaction
-WARN - in try, may cause errors
-DEBUG - begin
-DEBUG - Generated identifier: KPH543, using strategy: org.hibernate.id.Assigned
-DEBUG - select bloodbanka_.address_id, bloodbanka_.address_line_1 as address_2_1_, bloodbanka_.address_line_2 as address_3_1_, bloodbanka_.street as street4_1_ from blood_bank_address bloodbanka_ where bloodbanka_.address_id=?
+DEBUG - Result set row: 2
+DEBUG - Result row: EntityKey[domain.BloodBank#KPH543]
+DEBUG - Result set row: 3
+DEBUG - Result row: EntityKey[domain.BloodBank#STM21]
+DEBUG - Resolving associations for [domain.BloodBank#1234]
+DEBUG - select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
+DEBUG - Starting ResultSet row #0
+DEBUG - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+DEBUG - Resolving associations for [domain.BloodBankAddress#15]
+DEBUG - Done materializing entity [domain.BloodBankAddress#15]
 DEBUG - HHH000387: ResultSet's statement was not registered
-DEBUG - Generated identifier: 12, using strategy: org.hibernate.id.Assigned
-DEBUG - committing
-DEBUG - Processing flush-time cascades
-DEBUG - Dirty checking collections
-DEBUG - Flushed: 2 insertions, 0 updates, 0 deletions to 2 objects
-DEBUG - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
-DEBUG - Listing entities:
-DEBUG - domain.BloodBank{number=988-875-7458, bloodBankAddress=domain.BloodBankAddress#12, name=Kingston Central, id=KPH543}
-DEBUG - domain.BloodBankAddress{street=8 Runines, addressLine1=Scope, addressLine2=Danafor, addressId=12}
-DEBUG - insert into blood_bank_address (address_line_1, address_line_2, street, address_id) values (?, ?, ?, ?)
-DEBUG - insert into blood_bank (address_id, name, phone, idblood_bank) values (?, ?, ?, ?)
+DEBUG - Done entity load : domain.BloodBankAddress#15
+DEBUG - Done materializing entity [domain.BloodBank#1234]
+DEBUG - Resolving associations for [domain.BloodBank#741]
+DEBUG - select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
+DEBUG - Starting ResultSet row #0
+DEBUG - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+DEBUG - Resolving associations for [domain.BloodBankAddress#12345]
+DEBUG - Done materializing entity [domain.BloodBankAddress#12345]
+DEBUG - HHH000387: ResultSet's statement was not registered
+DEBUG - Done entity load : domain.BloodBankAddress#12345
+DEBUG - Done materializing entity [domain.BloodBank#741]
+DEBUG - Resolving associations for [domain.BloodBank#KPH543]
+DEBUG - select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
+DEBUG - Starting ResultSet row #0
+DEBUG - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+DEBUG - Resolving associations for [domain.BloodBankAddress#12]
+DEBUG - Done materializing entity [domain.BloodBankAddress#12]
+DEBUG - HHH000387: ResultSet's statement was not registered
+DEBUG - Done entity load : domain.BloodBankAddress#12
+DEBUG - Done materializing entity [domain.BloodBank#KPH543]
+DEBUG - Resolving associations for [domain.BloodBank#STM21]
+DEBUG - select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
+DEBUG - Starting ResultSet row #0
+DEBUG - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+DEBUG - Resolving associations for [domain.BloodBankAddress#ST21]
+DEBUG - Done materializing entity [domain.BloodBankAddress#ST21]
+DEBUG - HHH000387: ResultSet's statement was not registered
+DEBUG - Done entity load : domain.BloodBankAddress#ST21
+DEBUG - Done materializing entity [domain.BloodBank#STM21]
 DEBUG - Initiating JDBC connection release from afterTransaction
+INFO - in the getAllBloodBank() method in services.Hibernate.BloodBankSvcHibernateImpl
+DEBUG - SELECT * FROM blood_bank
+DEBUG - Result set row: 0
+DEBUG - Result row: EntityKey[domain.BloodBank#1234]
+DEBUG - Result set row: 1
+DEBUG - Result row: EntityKey[domain.BloodBank#741]
+DEBUG - Result set row: 2
+DEBUG - Result row: EntityKey[domain.BloodBank#KPH543]
+DEBUG - Result set row: 3
+DEBUG - Result row: EntityKey[domain.BloodBank#STM21]
+DEBUG - Resolving associations for [domain.BloodBank#1234]
+DEBUG - select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
+DEBUG - Starting ResultSet row #0
+DEBUG - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+DEBUG - Resolving associations for [domain.BloodBankAddress#15]
+DEBUG - Done materializing entity [domain.BloodBankAddress#15]
+DEBUG - HHH000387: ResultSet's statement was not registered
+DEBUG - Done entity load : domain.BloodBankAddress#15
+DEBUG - Done materializing entity [domain.BloodBank#1234]
+DEBUG - Resolving associations for [domain.BloodBank#741]
+DEBUG - select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
+DEBUG - Starting ResultSet row #0
+DEBUG - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+DEBUG - Resolving associations for [domain.BloodBankAddress#12345]
+DEBUG - Done materializing entity [domain.BloodBankAddress#12345]
+DEBUG - HHH000387: ResultSet's statement was not registered
+DEBUG - Done entity load : domain.BloodBankAddress#12345
+DEBUG - Done materializing entity [domain.BloodBank#741]
+DEBUG - Resolving associations for [domain.BloodBank#KPH543]
+DEBUG - select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
+DEBUG - Starting ResultSet row #0
+DEBUG - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+DEBUG - Resolving associations for [domain.BloodBankAddress#12]
+DEBUG - Done materializing entity [domain.BloodBankAddress#12]
+DEBUG - HHH000387: ResultSet's statement was not registered
+DEBUG - Done entity load : domain.BloodBankAddress#12
+DEBUG - Done materializing entity [domain.BloodBank#KPH543]
+DEBUG - Resolving associations for [domain.BloodBank#STM21]
+DEBUG - select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
+DEBUG - Starting ResultSet row #0
+DEBUG - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+DEBUG - Resolving associations for [domain.BloodBankAddress#ST21]
+DEBUG - Done materializing entity [domain.BloodBankAddress#ST21]
+DEBUG - HHH000387: ResultSet's statement was not registered
+DEBUG - Done entity load : domain.BloodBankAddress#ST21
+DEBUG - Done materializing entity [domain.BloodBank#STM21]
 DEBUG - Initiating JDBC connection release from afterTransaction
-DEBUG - Connection pool now considered primed; min-size will be maintained
+INFO - in the getAllBloodBank() method in services.Hibernate.BloodBankSvcHibernateImpl
+DEBUG - SELECT * FROM blood_bank
+DEBUG - Result set row: 0
+DEBUG - Result row: EntityKey[domain.BloodBank#1234]
+DEBUG - Result set row: 1
+DEBUG - Result row: EntityKey[domain.BloodBank#741]
+DEBUG - Result set row: 2
+DEBUG - Result row: EntityKey[domain.BloodBank#KPH543]
+DEBUG - Result set row: 3
+DEBUG - Result row: EntityKey[domain.BloodBank#STM21]
+DEBUG - Resolving associations for [domain.BloodBank#1234]
+DEBUG - select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
+DEBUG - Starting ResultSet row #0
+DEBUG - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+DEBUG - Resolving associations for [domain.BloodBankAddress#15]
+DEBUG - Done materializing entity [domain.BloodBankAddress#15]
+DEBUG - HHH000387: ResultSet's statement was not registered
+DEBUG - Done entity load : domain.BloodBankAddress#15
+DEBUG - Done materializing entity [domain.BloodBank#1234]
+DEBUG - Resolving associations for [domain.BloodBank#741]
+DEBUG - select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
+DEBUG - Starting ResultSet row #0
+DEBUG - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+DEBUG - Resolving associations for [domain.BloodBankAddress#12345]
+DEBUG - Done materializing entity [domain.BloodBankAddress#12345]
+DEBUG - HHH000387: ResultSet's statement was not registered
+DEBUG - Done entity load : domain.BloodBankAddress#12345
+DEBUG - Done materializing entity [domain.BloodBank#741]
+DEBUG - Resolving associations for [domain.BloodBank#KPH543]
+DEBUG - select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
+DEBUG - Starting ResultSet row #0
+DEBUG - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+DEBUG - Resolving associations for [domain.BloodBankAddress#12]
+DEBUG - Done materializing entity [domain.BloodBankAddress#12]
+DEBUG - HHH000387: ResultSet's statement was not registered
+DEBUG - Done entity load : domain.BloodBankAddress#12
+DEBUG - Done materializing entity [domain.BloodBank#KPH543]
+DEBUG - Resolving associations for [domain.BloodBank#STM21]
+DEBUG - select bloodbanka0_.address_id as address_1_1_0_, bloodbanka0_.address_line_1 as address_2_1_0_, bloodbanka0_.address_line_2 as address_3_1_0_, bloodbanka0_.street as street4_1_0_ from blood_bank_address bloodbanka0_ where bloodbanka0_.address_id=?
+DEBUG - Starting ResultSet row #0
+DEBUG - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+DEBUG - Resolving associations for [domain.BloodBankAddress#ST21]
+DEBUG - Done materializing entity [domain.BloodBankAddress#ST21]
+DEBUG - HHH000387: ResultSet's statement was not registered
+DEBUG - Done entity load : domain.BloodBankAddress#ST21
+DEBUG - Done materializing entity [domain.BloodBank#STM21]
+DEBUG - Initiating JDBC connection release from afterTransaction
